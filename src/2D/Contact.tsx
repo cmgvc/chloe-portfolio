@@ -12,7 +12,7 @@ const CONTACT_LINKS = [
 
 export default function Contact() {
     return (
-        <PageLayout label="Contact" title="Contact Me" divId="contact-div">
+        <PageLayout label="Contact" title="Contact Me" divId="contact-div" icon={null}>
             <SectionSubtitle>Feel free to reach out for collaborations or inquiries.</SectionSubtitle>
             
             <section className="mt-4 flex flex-col gap-4 mb-[5vh]">
