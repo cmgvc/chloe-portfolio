@@ -5,10 +5,7 @@ import { LanguageIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import PageLayout from "./PageLayout";
 import FadeInText from "../components/FadeIn";
 import SectionSubtitle from "../components/SectionSubtitle";
-import useVisibleHook from "../hooks/useVisibleHook";
-import laptopImg from "/images/chloe_outline.png";
 
-// Store definition
 interface AboutStore {
     hoveredCard: string | null;
     setHoveredCard: (card: string | null) => void;
@@ -48,8 +45,6 @@ const IconCard = ({ children, hoverKey, className }: { children: ReactNode; hove
 };
 
 export default function About() {
-    const visited = useVisibleHook("about-div-header", 1);
-
     return (
         <PageLayout label="About" title="About Me" divId="about-div">
             <SectionSubtitle>I've been programming since 2020 and have recently started playing with 3D web graphics.</SectionSubtitle>
@@ -79,7 +74,7 @@ export default function About() {
                     { id: "embedded", title: "Embedded", title2: "Engineering" },
                     { id: "backend", title: "Backend", title2: "Engineering" },
                 ].map((specialty, i) => (
-                    <FadeInText key={specialty.id} delay={0.5 + i * 0.25} flag={visited} className="col-span-3 lg:col-span-1">
+                    <FadeInText key={specialty.id} delay={0.5 + i * 0.25} className="col-span-3 lg:col-span-1">
                         <IconCard hoverKey={specialty.id} className="text-left w-full">
                             <div className="text-2xl font-semibold">
                                 <span className="block">{specialty.title}</span>
@@ -90,7 +85,7 @@ export default function About() {
                 ))}
             </div>
 
-            <div className="headshot mt-15"><img src={laptopImg} alt="Headshot" /></div>
+            <div className="headshot mt-15"><img src="/images/chloe_outline.png" alt="Headshot" /></div>
         </PageLayout>
     );
 }

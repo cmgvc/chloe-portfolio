@@ -4,7 +4,6 @@ import { View } from "@react-three/drei";
 import PageLayout from "./PageLayout";
 import FadeInText from "../components/FadeIn";
 import SectionSubtitle from "../components/SectionSubtitle";
-import useVisibleHook from "../hooks/useVisibleHook";
 import journeyData from "../data/journey";
 
 // Store definition
@@ -108,10 +107,7 @@ function JobCard({
   );
 }
 
-// Main component
 export default function Journey() {
-  const visited = useVisibleHook("journey-div", 0.5);
-
   return (
     <PageLayout label="Journey" title="My Journey" divId="journey-div">
       <SectionSubtitle>
@@ -123,7 +119,6 @@ export default function Journey() {
           <FadeInText
             key={item.id}
             delay={0}
-            flag={visited}
             fromX={i % 2 === 1 ? 20 : -20}
           >
             <JobCard item={item} reverse={i % 2 === 1} alwaysSmall={false} />

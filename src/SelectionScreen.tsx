@@ -1,7 +1,21 @@
 import { useEffect, useState } from "react";
 import useDimensionStore from "./hooks/useDimensionStore";
 
-const SelectionCard = ({ title, img, type, onClick, colorClass }) => (
+interface SelectionCardProps {
+  title: string;
+  img: string;
+  type: string;
+  onClick: (type: string) => void;
+  colorClass: string;
+}
+
+const SelectionCard = ({
+  title,
+  img,
+  type,
+  onClick,
+  colorClass,
+}: SelectionCardProps) => (
   <section className="border-2 border-white rounded-lg p-4 border-opacity-20 col-span-1">
     <b
       className={`block mb-2 ${colorClass} hover:brightness-125 duration-300 cursor-pointer`}
@@ -45,14 +59,14 @@ function SelectionScreen() {
             title="2D website"
             img="/images/2d_image.png"
             type="2D"
-            onClick={setDimension}
+            onClick={() => setDimension("2D")} 
             colorClass="text-[#f0c6a6f1]"
           />
           <SelectionCard
             title="3D website"
             img="/images/3d_image.png"
             type="3D"
-            onClick={setDimension}
+            onClick={() => setDimension("3D")} 
             colorClass="text-[#f0c6a6f1]"
           />
         </div>

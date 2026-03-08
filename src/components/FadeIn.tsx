@@ -7,6 +7,7 @@ interface FadeInProps {
     fromY?: number;
     className?: string;
     once?: boolean;
+    flag?: boolean; 
 }
 
 const FadeInText = ({
