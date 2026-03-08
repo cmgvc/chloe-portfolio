@@ -9,7 +9,7 @@ export default function Button({
     className = "",
     ...props
 }: PropsWithChildren<ButtonProps>) {
-    const Component = props.href ? "a" : "button";
+    const Component = (props.href ? "a" : "button") as any;
 
     return (
         <Component
