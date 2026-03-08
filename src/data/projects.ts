@@ -1,0 +1,95 @@
+export interface Project {
+    year: number;
+    name: string;
+    tags: string[]; 
+    desc: string[]; 
+    tech: string[];
+    source: string | null;
+    demo: string | null;
+    image: string;
+}
+
+const projects: Project[] = [
+    {
+        year: 2024,
+        name: "We Are Fit AI-Powered App",
+        tags: ["Full-Stack", "React", "NodeJS", "Express", "MongoDB", "Gemini API", "Vercel", "HTML/CSS", "Render", "AI", "LLM"],
+        desc: ["Developed a web-based fitness application that motivates users to stay active with daily challenges, dynamically generated using Gemini Google AI across three difficulty levels: beginner, intermediate, and advanced. Implemented secure user authentication for personalized experiences, including progress tracking, social sharing, and gamified leaderboards to boost engagement. Built using React.js for the frontend, Node.js with Express for the backend, and MongoDB for data management. Ensured seamless functionality and deployment with Vercel and Render."],
+        tech: ["React.js", "NodeJS", "MongoDB", "Express", "Gemini API", "Vercel", "Render", "HTML/CSS"],
+        source: "https://github.com/cmgvc/WeAreFit",
+        demo: "https://we-are-fit.vercel.app/",
+        image: "/images/projects/2024/wearefit.png",
+    },
+    {
+        year: 2024,
+        name: "'BiteWise' AI-Powered Food Waste Reduction App",
+        tags: ["Full-Stack", "Hackathon"],
+        desc: ["Developed a web-based application to reduce food waste by tracking kitchen inventory and suggesting recipes based on expiration dates and user preferences. Trained a machine learning model using TensorFlow for image and webcam object recognition to identify grocery items, automating inventory updates. Utilized AWS S3 for secure storage of user-uploaded images and data. Implemented user authentication for personalized recipe recommendations and dietary management. Built with React.js and CSS for a responsive frontend, Node.js with Express for the backend, and MongoDB for real-time inventory tracking. Deployed using Vercel and AWS services for scalability and reliability."],
+        tech: ["React.js", "NodeJS", "Vercel", "Render", "HTML/CSS", "TensorFlow", "AWS S3"],
+        source: "https://github.com/cmgvc/Bitewise",
+        demo: "https://bite-wise.vercel.app/",
+        image: "/images/projects/2024/bitewise.png",
+    },
+    {
+        year: 2024,
+        name: "Amazon Internal Service for Redriving Accounting Workflows",
+        tags: ["Full-Stack", "AWS", "Enterprise", "Automation", "React", "Java", "CI/CD", "Agile", "Git"],
+        desc: ["Developed a full-stack platform to automate the execution of an accounting service that redrives workflows triggered by financially significant events, improving operational efficiency. Built with a React frontend and Java backend, the platform leverages AWS Lambda functions to pull data from AWS S3 and run redrive operations based on incremental efficiency improvements. The system uses AWS EventBridge for event-driven architecture and DynamoDB for scalable data storage. IAM roles were implemented for secure authentication and resource access. The platform, deployed on AWS, was used by over 100 Amazon developers and internal employees to automate critical accounting processes, freeing the team to focus on more strategic tasks."],
+        tech: ["React.js", "Java", "AWS Lambda", "AWS EventBridge", "AWS DynamoDB", "IAM", "AWS S3", "CI/CD", "Git", "Agile"],
+        source: "",
+        demo: null,
+        image: "/images/projects/2024/amazon.webp",
+    },
+    {
+        year: 2024,
+        name: "'ParkinSync' Full-Stack Real-Time Data Portal",
+        tags: ["Full-Stack", "Real-Time", "Healthcare", "React", "Flask", "Git", "EMG", "Data Visualization"],
+        desc: ["As part of the McGill Biomechanics Club, I built a full-stack platform to display real-time EMG (electromyography) data streams, specifically for tremor monitoring in patients with neurological conditions like Parkinson's disease. The platform enabled healthcare professionals and researchers to monitor and analyze muscle activity associated with tremors, providing insights into the frequency, intensity, and progression of tremors over time. It featured real-time data visualization with detailed charts and metrics to track tremor patterns and assess treatment effectiveness. The backend, developed using Flask, ensured seamless, low-latency data transmission from EMG devices to the platform. The frontend, built with React.js, offered an intuitive interface for users to adjust data display settings, view historical trends, and analyze muscle response patterns. This platform supports ongoing research and monitoring, contributing to more effective tremor management and treatment evaluation."],
+        tech: ["React.js", "TypeScript", "TailwindCSS", "Flask", "HTML/CSS", "Git"],
+        source: "https://github.com/McGill-Biomechanics/ParkinSyncFrontend",
+        demo: "",
+        image: "/images/projects/2024/parkinsync.png",
+    },
+    {
+        year: 2024,
+        name: "'Flock' Scheduling Website for McGill School of Computer Science",
+        tags: ["Full-Stack", "Scheduling", "React", "NodeJS", "Express", "MongoDB", "JWT Authentication", "HTML/CSS", "Git"],
+        desc: ["Flock is a responsive meeting management platform designed to streamline scheduling between faculty and students at the McGill School of Computer Science. Built with the MERN stack (MongoDB, Express.js, React.js, and Node.js), the platform enables faculty to set their available slots, while students can easily book and manage meetings. The user-friendly interface includes features such as authentication, customizable meeting times, and personalized views, allowing users to log in to their accounts to access and manage their schedules effectively. In the development of Flock, I was responsible for implementing the logic to display availability, book meetings, and manage the dashboard, which shows upcoming, requested, past meetings, and current availabilities. Additionally, I handled the acceptance or denial of meeting requests. I also worked on various frontend aspects, including the design and functionality of the navbar, footer, and other pages, contributing to an intuitive and seamless user experience. I played a key role in designing the database structure to ensure efficient data management and scalability. Storyboards and wireframes were created during the initial phases to visualize user flows and guide the design process, ensuring alignment within the team and efficient execution of features from concept to deployment."],
+        tech: ["React.js", "NodeJS", "Express", "MongoDB", "JWT Authentication", "HTML/CSS", "Git"],
+        source: "https://github.com/cmgvc/SOCS",
+        demo: "",
+        image: "/images/projects/2024/flock.png",
+    },
+    {
+        year: 2024,
+        name: "Personal Portfolio",
+        tags: ["React", "Vercel", "HTML/CSS", "Personal", "Website"],
+        desc: ["Developed a portfolio website using React to showcase projects, skills, and professional experiences with a sleek and responsive design."],
+        tech: ["React", "HTML/CSS", "Vercel"],
+        source: "https://github.com/cmgvc/chloegav",
+        demo: "https://chloegav.vercel.app/",
+        image: "/images/projects/2024/portfolio.png",
+    },
+    {
+        year: 2024,
+        name: "Content Management System",
+        tags: ["Full-Stack", "React", "NodeJS", "PostgreSQL", "HTML/CSS", "Vercel", "Render"],
+        desc: ["Developed a content management platform enabling non-technical users to easily add, edit, and organize data in their personal portfolio, with a sleek and responsive user interface."],
+        tech: ["React", "JavaScript", "NodeJS", "PostgreSQL", "HTML/CSS", "Vercel", "Render"],
+        source: "https://github.com/cmgvc/portfolio-cms",
+        demo: "https://gaurav-cms.vercel.app/",
+        image: "",
+    },
+    {
+        year: 2025,
+        name: "Freelance Web Development for Clients",
+        tags: ["Freelance", "Web Development", "React", "NodeJS", "PostgreSQL", "MongoDB", "HTML/CSS", "Vercel", "Render"],
+        desc: ["Designed and developed responsive websites tailored to the unique needs of small businesses and individuals. Focused on creating user-friendly, visually appealing, and functional websites to help clients establish their online presence. Projects range from portfolio websites to e-commerce platforms, always with a focus on delivering results and client satisfaction."],
+        tech: ["React.js", "NodeJS", "PostgreSQL", "MongoDB", "HTML/CSS", "Vercel", "Render"],
+        source: "",
+        demo: "https://gauravdogra.vercel.app/",
+        image: "/images/projects/2025/freelance.png",
+    },
+];
+
+export default projects;

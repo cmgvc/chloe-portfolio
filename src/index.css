@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: #f0c6a6f1;
+    overflow-x: hidden;
+    background-color: #0D0B0A;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    touch-action: none;
+    animation: fade-in 2s ease 0s forwards;
+}
+
+.view {
+    overflow: hidden;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+.vertical-scroll {
+  animation: verticalLoop 25s linear infinite;
+}
+
+@keyframes verticalLoop {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-33.333%);
+  }
+}
+
+.name-tag-container {
+    perspective: 1000px; 
+    margin-top: 12em;
+    animation: tiltAnimation 3s ease-in-out infinite; 
+}
+
+.name-tag-card {
+    width: 14vw; 
+    height: 11vh; 
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    display: inline-block;
+}
+
+.name-tag-container:hover .name-tag-card {
+    transform: rotateY(180deg) scale(1) scaleY(1.3); 
+}
+
+.name-tag-container:hover  {
+    animation: none;
+}
+
+@keyframes tiltAnimation {
+    0% {
+        transform: rotateZ(-5deg);
+    }
+    50% {
+        transform: rotateZ(5deg); 
+    }
+    100% {
+        transform: rotateZ(-5deg); 
+    }
+}
+
+.headshot {
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headshot img {
+    width: 45%; 
+    height: 100%;
+    object-fit: fill; 
+    border-radius: 5px;
+}
