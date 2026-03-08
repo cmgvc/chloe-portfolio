@@ -62,7 +62,7 @@ export default function Nav() {
     return (
         <header
             id="navbar-container"
-            className={`flex items-center justify-center fixed py-4 duration-300 shadow-lg z-10 h-[60px] left-1/2 -translate-x-1/2 ${
+            className={`flex items-center justify-center fixed py-4 duration-300 shadow-lg z-10 h-[60px] left-1/2 -translate-x-[45%] ${
                 isScrolled ? "rounded-full bg-[#3D342F] w-[50%] lg:px-8" : "bg-transparent w-[75%] lg:px-8"
             }`}
             style={{ top: "0.75cm" }}
