@@ -12,7 +12,7 @@ export interface Project {
 const projects: Project[] = [
     {
         year: 2024,
-        name: "We Are Fit AI-Powered App",
+        name: "'We Are Fit' AI-Powered App",
         tags: ["Full-Stack", "React", "NodeJS", "Express", "MongoDB", "Gemini API", "Vercel", "HTML/CSS", "Render", "AI", "LLM"],
         desc: ["Developed a web-based fitness application that motivates users to stay active with daily challenges, dynamically generated using Gemini Google AI across three difficulty levels: beginner, intermediate, and advanced. Implemented secure user authentication for personalized experiences, including progress tracking, social sharing, and gamified leaderboards to boost engagement. Built using React.js for the frontend, Node.js with Express for the backend, and MongoDB for data management. Ensured seamless functionality and deployment with Vercel and Render."],
         tech: ["React.js", "NodeJS", "MongoDB", "Express", "Gemini API", "Vercel", "Render", "HTML/CSS"],
