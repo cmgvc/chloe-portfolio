@@ -61,7 +61,7 @@ export default function Projects() {
     };
 
     return (
-        <PageLayout label="Projects" title="My Projects" divId="projects-div">
+        <PageLayout label="Projects" title="My Projects" divId="projects-div" icon={null}>
 			<SectionSubtitle>
 				I like the build stuff, and I like to show it off. Here are some of my projects that I'm proud of. Feel free to check out the source code and demos if available!
 			</SectionSubtitle>

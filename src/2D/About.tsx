@@ -46,7 +46,7 @@ const IconCard = ({ children, hoverKey, className }: { children: ReactNode; hove
 
 export default function About() {
     return (
-        <PageLayout label="About" title="About Me" divId="about-div">
+        <PageLayout label="About" title="About Me" divId="about-div" icon={null}>
             <SectionSubtitle>I've been programming since 2020 and have recently started playing with 3D web graphics.</SectionSubtitle>
             
             <div className="grid grid-cols-2 gap-4 mt-8 w-full max-w-4xl">

@@ -109,7 +109,7 @@ function JobCard({
 
 export default function Journey() {
   return (
-    <PageLayout label="Journey" title="My Journey" divId="journey-div">
+    <PageLayout label="Journey" title="My Journey" divId="journey-div" icon={null}>
       <SectionSubtitle>
         I've done a few things in my life, and I'm proud of all of them. Here
         are some tech-related highlights of my journey so far. More to come!
