@@ -91,8 +91,6 @@ export default function Nav({ setView }: NavProps) {
           className="font-bold cursor-pointer relative text-lg sm:text-xl lg:text-3xl"
           onClick={() => scrollTo("home-div")}
         >
-          <span className="lg:hidden text-[#b95c23]">CG</span>
-
           <span
             className="hidden lg:inline-block transition-opacity duration-300"
             style={{ opacity: isScrolled ? 1 : 0 }}
@@ -104,13 +102,12 @@ export default function Nav({ setView }: NavProps) {
             className="hidden lg:inline-block absolute whitespace-nowrap transition-opacity duration-300 text-[#b95c23]"
             style={{ opacity: isScrolled ? 0 : 1, left: "-4rem" }}
           >
-            <span className="xl:hidden">C</span>
             <span className="hidden xl:inline text-[#b47249]">chloe gav</span>
           </span>
         </span>
 
         <ul
-          className={`flex items-center justify-center flex-1
+          className={` items-center justify-center flex-1 hidden md:flex 
         ${
           isScrolled ? "gap-5 sm:gap-7 lg:gap-10" : "gap-6 sm:gap-8 lg:gap-14"
         }`}
@@ -149,10 +146,7 @@ export default function Nav({ setView }: NavProps) {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <span className="sm:hidden">
-            <HailIcon />
-          </span>
-          <span className="hidden sm:inline">
+          <span className="">
             {isScrolled ? <HailIcon /> : "beyond the terminal"}
           </span>
         </li>
