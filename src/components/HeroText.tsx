@@ -23,10 +23,10 @@ export default function HeroText({ className = "" }: HeroTextProps) {
         </FadeInText>
 
         <FadeInText delay={0.6}>
-          <h2 className="text-xl mt-4">
-            A{" "}
+          <h2 className="text-xl mt-4 text-[#b47249] font-semibold">
+            a
             <TypingLabel
-              className="text-[#b47249] font-semibold"
+              className=""
               words={TYPING_TEXTS}
             />
           </h2>

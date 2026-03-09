@@ -59,10 +59,11 @@ export default function About() {
   return (
     <PageLayout label="About" title="About Me" divId="about-div" icon={null}>
       <SectionSubtitle>
-        I create things: complex systems in the terminal and a life outside of
+        I create things: complex systems in the terminal and my life outside of
         it. I spend my time deep in software architecture and low-level logic. I
-        spend the rest of it building rhythm - whether that’s in the music I
-        mix, the laps I swim, the yoga I practice or through the pages of a new book.
+        spend the rest of it building rhythm - whether it's through the music I
+        mix, the laps I swim, the yoga I practice or through the pages of a new
+        book.
       </SectionSubtitle>
 
       <div className="grid grid-cols-2 gap-4 mt-8 w-full max-w-4xl">
@@ -121,7 +122,7 @@ export default function About() {
           </FadeInText>
         ))}
       </div>
-
+      <p className="mt-[3vh] scale-[0.8]">With a deep-seated interest in the kernel.</p>
       <div className="headshot mt-15">
         <img src="/images/chloe_outline.png" alt="Headshot" />
       </div>
