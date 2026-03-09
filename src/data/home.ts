@@ -11,7 +11,7 @@ export const TYPING_TEXTS = [
     " Backend developer",
     " Bibliophile",
     " World traveller",
-    "n Amature DJ",
+    "n Amateur DJ",
     " Retired competitive swimmer",
     " Yoga practitioner",
     " UI/UX designer",

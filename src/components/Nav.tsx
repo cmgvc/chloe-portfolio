@@ -129,23 +129,32 @@ export default function Nav({ setView }: NavProps) {
         </ul>
       </header>
       <ul
-        className={`fixed z-20 flex items-center 
-      duration-300 shadow-lg left-[81%] hover:scale-[1.05] ${
-        isScrolled ? " mt-[90vh] left-[92%]" : " mt-[6vh]"
-      }`}
+        className={`fixed z-20 flex items-center duration-300 
+  ${
+    isScrolled
+      ? "bottom-5 right-5 sm:right-8 lg:right-12"
+      : "top-[6vh] right-5 sm:right-8 lg:right-[4%]"
+  }`}
       >
         <li
-          className={`duration-300 font-bold cursor-pointer text-xs sm:text-sm lg:text-base ${
-            isScrolled
-              ? "text-[#f0c6a6f1] hover:text-[#6c3512] rounded-[30px] py-3 px-4 bg-[#3D342F] cursor-pointer hover:bg-[#f0c6a6f1]"
-              : "text-[#f0c6a6f1] hover:text-[#6c3512] rounded-[30px] py-3 px-4 cursor-pointer hover:bg-[#f0c6a6f1]"
-          }`}
+          className={`duration-300 font-bold cursor-pointer text-xs sm:text-sm lg:text-base 
+    flex items-center justify-center
+    ${
+      isScrolled
+        ? "text-[#f0c6a6f1] rounded-full p-3 sm:py-3 sm:px-4 bg-[#3D342F] shadow-xl hover:bg-[#f0c6a6f1] hover:text-[#3D342F]"
+        : "text-[#f0c6a6f1] rounded-[30px] py-3 px-4 hover:bg-[#f0c6a6f1] hover:text-[#6c3512]"
+    }`}
           onClick={() => {
             setView("beyond");
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          {isScrolled ? <HailIcon /> : "beyond the terminal"}
+          <span className="sm:hidden">
+            <HailIcon />
+          </span>
+          <span className="hidden sm:inline">
+            {isScrolled ? <HailIcon /> : "beyond the terminal"}
+          </span>
         </li>
       </ul>
     </div>
