@@ -65,13 +65,13 @@ function Shelf({ title, books }: { title: string; books: Book[] }) {
   return (
     <section className="bg-[#3D342F]/40 p-6 rounded-2xl border border-[#221d1a]">
       <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-[#f0c6a6f1]">
-        {title}{" "}
+        {title}
         <span className="flex items-center justify-center w-6 h-6 text-sm bg-[#E07A5F]/20 text-[#D65F3D] rounded-full font-bold">
           {books.length}
         </span>
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-7">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
@@ -79,6 +79,7 @@ function Shelf({ title, books }: { title: string; books: Book[] }) {
     </section>
   );
 }
+
 function BookCard({ book }: { book: Book }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -92,16 +93,14 @@ function BookCard({ book }: { book: Book }) {
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.05 }}
-      className="w-40 block cursor-pointer group"
+      className="block w-full cursor-pointer group" 
     >
-      <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-[#D9CAB3]">
+      <div className="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-[#D9CAB3] shadow-md">
         {!imageLoaded && (
           <Skeleton
             variant="rectangular"
-            width={165}
-            height={350}
             animation="wave"
-            className="absolute z-10"
+            className="absolute inset-0 z-10"
             sx={{ bgcolor: "#C8B9A6" }}
           />
         )}
