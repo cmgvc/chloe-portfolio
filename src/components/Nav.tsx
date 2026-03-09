@@ -135,12 +135,15 @@ export default function Nav({ setView }: NavProps) {
       }`}
       >
         <li
-          className={`duration-300 font-bold cursor-pointer text-xs sm:text-sm lg:text-base  ${
+          className={`duration-300 font-bold cursor-pointer text-xs sm:text-sm lg:text-base ${
             isScrolled
               ? "text-[#f0c6a6f1] hover:text-[#6c3512] rounded-[30px] py-3 px-4 bg-[#3D342F] cursor-pointer hover:bg-[#f0c6a6f1]"
               : "text-[#f0c6a6f1] hover:text-[#6c3512] rounded-[30px] py-3 px-4 cursor-pointer hover:bg-[#f0c6a6f1]"
           }`}
-          onClick={() => setView("beyond")}
+          onClick={() => {
+            setView("beyond");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
         >
           {isScrolled ? <HailIcon /> : "beyond the terminal"}
         </li>

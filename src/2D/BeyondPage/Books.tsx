@@ -14,8 +14,14 @@ export default function Books() {
           const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(localBook.title)}&limit=1`;
           const res = await fetch(url);
           const data = await res.json();
-          return { ...localBook, ...data.docs?.[0] };
-        })
+
+          return {
+            ...data.docs?.[0],
+            ...localBook,
+            title: localBook.title,
+            author: localBook.author,
+          };
+        }),
       );
 
       setMyBooks(enrichedBooks);
@@ -28,30 +34,40 @@ export default function Books() {
   const displayBooks = loading ? books : myBooks;
 
   return (
-    <div className="flex flex-col items-center min-h-screen p-8 gap-12">
-      <h1 className="text-4xl font-bold">The Library</h1>
+<div id="my-library-section" className="min-h-screen p-8 max-w-7xl mx-auto ...">      <header className="mb-12">
+        <h1 className="text-5xl font-extrabold mb-4 text-[#f0c6a6f1]">
+          My Library
+        </h1>
+        <p className="text-[#f0c6a6f1]">
+          A living record of my current reads and all-time favs.
+        </p>
+      </header>
 
-      <Shelf
-        title="Currently Reading"
-        books={displayBooks.filter((b) => b.shelf === "currently-reading")}
-      />
-
-      <Shelf
-        title="All-Time Favorites"
-        books={displayBooks.filter((b) => b.shelf === "best")}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Shelf
+          title="Current Reads"
+          books={displayBooks.filter((b) => b.shelf === "currently-reading")}
+        />
+        <Shelf
+          title="My recommendations"
+          books={displayBooks.filter((b) => b.shelf === "best")}
+        />
+      </div>
     </div>
   );
 }
 
 function Shelf({ title, books }: { title: string; books: Book[] }) {
   return (
-    <section className="w-full max-w-5xl">
-      <h2 className="text-2xl font-semibold mb-6 border-l-4 border-[#e4cebe] pl-4">
-        {title}
+    <section className="bg-[#3D342F]/40 p-6 rounded-2xl border border-[#221d1a]">
+      <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-[#f0c6a6f1]">
+        {title}{" "}
+        <span className="flex items-center justify-center w-6 h-6 text-sm bg-[#E07A5F]/20 text-[#D65F3D] rounded-full font-bold">
+          {books.length}
+        </span>
       </h2>
 
-      <div className="flex overflow-x-auto gap-6 pb-8 no-scrollbar">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-7">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
@@ -59,7 +75,6 @@ function Shelf({ title, books }: { title: string; books: Book[] }) {
     </section>
   );
 }
-
 function BookCard({ book }: { book: Book }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -68,19 +83,24 @@ function BookCard({ book }: { book: Book }) {
     : "/fallback-book-cover.png";
 
   return (
-    <motion.div whileHover={{ scale: 1.05 }} className="w-40">
-      <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-gray-800">
-
+    <motion.a
+      href={book.goodreadsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      className="w-40 block cursor-pointer group"
+    >
+      <div className="relative w-40 h-60 rounded-lg overflow-hidden bg-[#D9CAB3]">
         {!imageLoaded && (
           <Skeleton
             variant="rectangular"
-            width={165} height={350}
+            width={165}
+            height={350}
             animation="wave"
             className="absolute z-10"
-            sx={{ bgcolor: "grey.700" }}
+            sx={{ bgcolor: "#C8B9A6" }}
           />
         )}
-
         <img
           src={imageUrl}
           alt={book.title}
@@ -91,8 +111,10 @@ function BookCard({ book }: { book: Book }) {
         />
       </div>
 
-      <h3 className="text-sm mt-3 font-medium truncate">{book.title}</h3>
-      <p className="text-xs text-gray-500">{book.author}</p>
-    </motion.div>
+      <h3 className="text-sm mt-3 font-medium truncate text-[#f0c6a6f1] group-hover:underline">
+        {book.title}
+      </h3>
+      <p className="text-xs text-[#8C7B75]">{book.author}</p>
+    </motion.a>
   );
 }

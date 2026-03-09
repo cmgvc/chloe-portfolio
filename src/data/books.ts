@@ -1,12 +1,13 @@
 export interface Book {
-    id: string;
-    title: string;
-    author: string;
-    coverId?: string; 
-    cover_i?: number;
-    review?: string;
-    tags?: string[];
-    shelf: "best" | "currently-reading";
+  id: string;
+  title: string;
+  author: string;
+  coverId?: string;
+  cover_i?: number;
+  review?: string;
+  tags?: string[];
+  shelf: "best" | "currently-reading";
+  goodreadsUrl: string;
 }
 
 export const books: Book[] = [
@@ -17,13 +18,8 @@ export const books: Book[] = [
     author: "Andy Weir",
     tags: ["Science Fiction", "Thriller"],
     shelf: "best",
-  },
-  {
-    id: "2",
-    title: "A Court of Thorns and Roses",
-    author: "Sarah J. Maas",
-    tags: ["Fantasy", "Romance"],
-    shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/54493401-project-hail-mary?ac=1&from_search=true&qid=v3inO458Ha&rank=1",
   },
   {
     id: "3",
@@ -31,6 +27,8 @@ export const books: Book[] = [
     author: "Brandon Sanderson",
     tags: ["Fantasy", "Epic"],
     shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/68428.Mistborn?ref=nav_sb_ss_1_6",
   },
   {
     id: "4",
@@ -38,6 +36,8 @@ export const books: Book[] = [
     author: "Susanna Clarke",
     tags: ["Fantasy", "Literary"],
     shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/50202953-piranesi?ref=nav_sb_ss_1_8",
   },
   {
     id: "5",
@@ -45,6 +45,8 @@ export const books: Book[] = [
     author: "Matt Dinniman",
     tags: ["LitRPG", "Sci-Fi", "Comedy"],
     shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/56791389-dungeon-crawler-carl?ref=nav_sb_ss_1_7",
   },
   {
     id: "6",
@@ -52,6 +54,8 @@ export const books: Book[] = [
     author: "Bonnie Garmus",
     tags: ["Historical Fiction", "Contemporary"],
     shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/242528917-lessons-in-chemistry?ref=nav_sb_ss_1_7",
   },
   {
     id: "7",
@@ -59,6 +63,8 @@ export const books: Book[] = [
     author: "Sarah J. Maas",
     tags: ["Fantasy", "Young Adult"],
     shelf: "best",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/76703559-throne-of-glass?ref=nav_sb_ss_2_9",
   },
 
   // CURRENTLY READING SHELF
@@ -68,6 +74,8 @@ export const books: Book[] = [
     author: "Pierce Brown",
     tags: ["Sci-Fi", "Dystopian"],
     shelf: "currently-reading",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/15839976-red-rising?ref=nav_sb_ss_1_6",
   },
   {
     id: "9",
@@ -75,6 +83,8 @@ export const books: Book[] = [
     author: "Matt Dinniman",
     tags: ["LitRPG", "Sci-Fi"],
     shelf: "currently-reading",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/56377548-carl-s-doomsday-scenario?ref=nav_sb_ss_1_9",
   },
   {
     id: "10",
@@ -82,6 +92,8 @@ export const books: Book[] = [
     author: "Diana Gabaldon",
     tags: ["Historical Fiction", "Romance"],
     shelf: "currently-reading",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/10964.Outlander?ref=nav_sb_ss_1_8",
   },
   {
     id: "11",
@@ -89,6 +101,8 @@ export const books: Book[] = [
     author: "Brandon Sanderson",
     tags: ["Fantasy", "Epic"],
     shelf: "currently-reading",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/68429.The_Well_of_Ascension?ref=nav_sb_ss_1_7",
   },
   {
     id: "12",
@@ -96,5 +110,7 @@ export const books: Book[] = [
     author: "Emily Brontë",
     tags: ["Classic", "Gothic"],
     shelf: "currently-reading",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/6185.Wuthering_Heights?ref=nav_sb_ss_1_8",
   },
 ];

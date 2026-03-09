@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Preload, View } from "@react-three/drei";
+import { useState } from "react";
 import Nav from "../components/Nav";
 import Home from "./Homepage/Home";
 import About from "./Homepage/About";
@@ -8,7 +9,8 @@ import Journey from "./Homepage/Journey";
 import Contact from "./Homepage/Contact";
 import Beyond from "./BeyondPage/Beyond";
 import Books from "./BeyondPage/Books";
-import { useState } from "react";
+import Mixes from "./BeyondPage/Mixes";
+import Travel from "./BeyondPage/Travel";
 
 export default function Website2D() {
   const [view, setView] = useState("home");
@@ -38,11 +40,14 @@ export default function Website2D() {
           <Journey />
           <Contact />
         </main>
-      ) : <main>
-        <Beyond onBack={() => setView("home")} />
-            <Books />
-            </main>
-} 
+      ) : (
+        <main>
+          <Beyond onBack={() => setView("home")} />
+          <Books />
+          <Mixes />
+          <Travel />
+        </main>
+      )}
     </div>
   );
 }
