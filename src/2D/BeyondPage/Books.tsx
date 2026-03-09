@@ -34,7 +34,12 @@ export default function Books() {
   const displayBooks = loading ? books : myBooks;
 
   return (
-<div id="my-library-section" className="min-h-screen p-8 max-w-7xl mx-auto ...">      <header className="mb-12">
+    <div
+      id="my-library-section"
+      className="min-h-screen p-8 max-w-7xl mx-auto ..."
+    >
+      {" "}
+      <header className="mb-12">
         <h1 className="text-5xl font-extrabold mb-4 text-[#f0c6a6f1]">
           My Library
         </h1>
@@ -42,7 +47,6 @@ export default function Books() {
           A living record of my current reads and all-time favs.
         </p>
       </header>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Shelf
           title="Current Reads"
@@ -79,7 +83,7 @@ function BookCard({ book }: { book: Book }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const imageUrl = book.cover_i
-    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+    ? `https://covers.openlibrary.org/b/isbn/${book.cover_i}-M.jpg`
     : "/fallback-book-cover.png";
 
   return (

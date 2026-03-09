@@ -18,6 +18,7 @@ export const books: Book[] = [
     author: "Andy Weir",
     tags: ["Science Fiction", "Thriller"],
     shelf: "best",
+    cover_i: 9780593135204,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/54493401-project-hail-mary?ac=1&from_search=true&qid=v3inO458Ha&rank=1",
   },
@@ -27,6 +28,7 @@ export const books: Book[] = [
     author: "Brandon Sanderson",
     tags: ["Fantasy", "Epic"],
     shelf: "best",
+    cover_i: 9780765311788,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/68428.Mistborn?ref=nav_sb_ss_1_6",
   },
@@ -36,6 +38,7 @@ export const books: Book[] = [
     author: "Susanna Clarke",
     tags: ["Fantasy", "Literary"],
     shelf: "best",
+    cover_i: 9781635575637,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/50202953-piranesi?ref=nav_sb_ss_1_8",
   },
@@ -45,6 +48,7 @@ export const books: Book[] = [
     author: "Matt Dinniman",
     tags: ["LitRPG", "Sci-Fi", "Comedy"],
     shelf: "best",
+    cover_i: 9780593820247,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/56791389-dungeon-crawler-carl?ref=nav_sb_ss_1_7",
   },
@@ -54,6 +58,7 @@ export const books: Book[] = [
     author: "Bonnie Garmus",
     tags: ["Historical Fiction", "Contemporary"],
     shelf: "best",
+    cover_i: 9781804990926,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/242528917-lessons-in-chemistry?ref=nav_sb_ss_1_7",
   },
@@ -63,6 +68,7 @@ export const books: Book[] = [
     author: "Sarah J. Maas",
     tags: ["Fantasy", "Young Adult"],
     shelf: "best",
+    cover_i: 9781639730940,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/76703559-throne-of-glass?ref=nav_sb_ss_2_9",
   },
@@ -74,6 +80,7 @@ export const books: Book[] = [
     author: "Pierce Brown",
     tags: ["Sci-Fi", "Dystopian"],
     shelf: "currently-reading",
+    cover_i: 9780345539786,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/15839976-red-rising?ref=nav_sb_ss_1_6",
   },
@@ -83,6 +90,7 @@ export const books: Book[] = [
     author: "Matt Dinniman",
     tags: ["LitRPG", "Sci-Fi"],
     shelf: "currently-reading",
+    cover_i: 9780593820261,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/56377548-carl-s-doomsday-scenario?ref=nav_sb_ss_1_9",
   },
@@ -92,6 +100,7 @@ export const books: Book[] = [
     author: "Diana Gabaldon",
     tags: ["Historical Fiction", "Romance"],
     shelf: "currently-reading",
+    cover_i: 9780440242949,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/10964.Outlander?ref=nav_sb_ss_1_8",
   },
@@ -101,6 +110,7 @@ export const books: Book[] = [
     author: "Brandon Sanderson",
     tags: ["Fantasy", "Epic"],
     shelf: "currently-reading",
+    cover_i: 9780765316882,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/68429.The_Well_of_Ascension?ref=nav_sb_ss_1_7",
   },
@@ -110,6 +120,7 @@ export const books: Book[] = [
     author: "Emily Brontë",
     tags: ["Classic", "Gothic"],
     shelf: "currently-reading",
+    cover_i: 9780141439556,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/6185.Wuthering_Heights?ref=nav_sb_ss_1_8",
   },
