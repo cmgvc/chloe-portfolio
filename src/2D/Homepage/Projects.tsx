@@ -1,8 +1,8 @@
 import { useState } from "react";
 import GitHub from "@mui/icons-material/GitHub";
-import PageLayout from "./PageLayout";
-import projects from "../data/projects";
-import SectionSubtitle from "../components/SectionSubtitle";
+import PageLayout from "../PageLayout";
+import projects from "../../data/projects";
+import SectionSubtitle from "../../components/SectionSubtitle";
 
 function ProjectCard({ project, isExpanded, onToggle }: { project: any, isExpanded: boolean, onToggle: () => void }) {
     const styles = {
@@ -16,11 +16,14 @@ function ProjectCard({ project, isExpanded, onToggle }: { project: any, isExpand
             <div className={`text-sm font-mono mb-4 ${styles.text}`}>{project.year}</div>
             <h3 className="text-[#F0C6A6] font-bold text-xl mb-2">{project.name}</h3>
             
-            <p className="text-[#e4cebe] text-sm mb-4 leading-relaxed">
-                {isExpanded 
-                    ? project.desc.join(" ") 
-                    : `${project.desc[0].substring(0, 100)}...`}
-            </p>
+            <div className="text-[#e4cebe] text-sm mb-4 leading-relaxed">
+    {isExpanded 
+        ? project.desc.map((line, index) => (
+            <p key={index} className="mb-2">{line}</p>
+          ))
+        : <p>{project.desc[0].substring(0, 100)}...</p>
+    }
+</div>
 
             <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((skill: string) => (

@@ -1,5 +1,5 @@
-import PageLayout from "./PageLayout";
-import SectionSubtitle from "../components/SectionSubtitle";
+import PageLayout from "../PageLayout";
+import SectionSubtitle from "../../components/SectionSubtitle";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
@@ -13,7 +13,7 @@ const CONTACT_LINKS = [
 export default function Contact() {
     return (
         <PageLayout label="Contact" title="Contact Me" divId="contact-div" icon={null}>
-            <SectionSubtitle>Feel free to reach out for collaborations or inquiries.</SectionSubtitle>
+            <SectionSubtitle>Always open to new projects. Let’s build something.</SectionSubtitle>
             
             <section className="mt-4 flex flex-col gap-4 mb-[5vh]">
                 {CONTACT_LINKS.map(({ label, href, icon: Icon, color }) => (

@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 import { create } from "zustand";
 import { LanguageIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
-import PageLayout from "./PageLayout";
-import FadeInText from "../components/FadeIn";
-import SectionSubtitle from "../components/SectionSubtitle";
+import PageLayout from "../PageLayout";
+import FadeInText from "../../components/FadeIn";
+import SectionSubtitle from "../../components/SectionSubtitle";
 
 interface AboutStore {
   hoveredCard: string | null;
@@ -124,7 +124,7 @@ export default function About() {
       </div>
       <p className="mt-[3vh] scale-[0.8]">With a deep-seated interest in the kernel.</p>
       <div className="headshot mt-15">
-        <img src="/images/chloe_outline.png" alt="Headshot" />
+        <img src="/images/chloe_mat.png" alt="Headshot" />
       </div>
     </PageLayout>
   );

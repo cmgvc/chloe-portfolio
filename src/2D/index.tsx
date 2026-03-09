@@ -1,38 +1,48 @@
 import { Canvas } from "@react-three/fiber";
 import { Preload, View } from "@react-three/drei";
 import Nav from "../components/Nav";
-import Home from "./Home";
-import About from "./About";
-import Projects from "./Projects";
-import Journey from "./Journey";
-import Contact from "./Contact";
+import Home from "./Homepage/Home";
+import About from "./Homepage/About";
+import Projects from "./Homepage/Projects";
+import Journey from "./Homepage/Journey";
+import Contact from "./Homepage/Contact";
+import Beyond from "./BeyondPage/Beyond";
+import Books from "./BeyondPage/Books";
+import { useState } from "react";
 
 export default function Website2D() {
-    return (
-        <div className="relative">
-            <Canvas
-                className="fixed inset-0 !pointer-events-none"
-                style={{
-                    position: "fixed",
-                    top: 0,
-                    bottom: 0,
-                    overflow: "hidden",
-                    zIndex: -1,
-                }}
-            >
-                <View.Port />
-                <Preload all />
-            </Canvas>
+  const [view, setView] = useState("home");
 
-            <Nav />
+  return (
+    <div className="relative">
+      <Canvas
+        className="fixed inset-0 !pointer-events-none"
+        style={{
+          position: "fixed",
+          top: 0,
+          bottom: 0,
+          overflow: "hidden",
+          zIndex: -1,
+        }}
+      >
+        <View.Port />
+        <Preload all />
+      </Canvas>
 
-            <main>
-                <Home />
-                <About />
-                <Projects />
-                <Journey />
-                <Contact />
+      {view === "home" ? (
+        <main>
+          <Nav setView={setView} />
+          <Home />
+          <About />
+          <Projects />
+          <Journey />
+          <Contact />
+        </main>
+      ) : <main>
+        <Beyond onBack={() => setView("home")} />
+            <Books />
             </main>
-        </div>
-    );
+} 
+    </div>
+  );
 }

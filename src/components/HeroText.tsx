@@ -36,7 +36,7 @@ export default function HeroText({ className = "" }: HeroTextProps) {
           <p className="text-lg leading-relaxed">
             Welcome to my digital desk. Think of this as an open-source look at
             my brain. Right now, that looks like shipped code, half-baked
-            curiosities, and whatever I’m currently hyper-focusing on.{" "}
+            curiosities, and whatever I’m currently hyper-fixating on.{" "}
           </p>
         </FadeInText>
 

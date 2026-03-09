@@ -1,4 +1,4 @@
-import HeroText from "../components/HeroText";
+import HeroText from "../../components/HeroText";
 
 const SCROLL_TEXT = "昔々、ずっと昔に灰燼に帰した土地に、王国を愛する若い王女が住んでいました";
 const CHARS = SCROLL_TEXT.split("");
