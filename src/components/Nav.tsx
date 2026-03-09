@@ -78,9 +78,9 @@ export default function Nav({ setView }: NavProps) {
     <div>
       <header
         id="navbar-container"
-        className={`fixed z-20 flex items-center justify-between
+        className={`fixed z-20 items-center justify-between
       h-[60px] px-5 sm:px-8 mt-[5vh]
-      duration-300 shadow-lg left-[50%] -translate-x-1/2
+      duration-300 shadow-lg left-[50%] -translate-x-1/2 hidden md:flex 
       ${
         isScrolled
           ? "bg-[#3D342F] rounded-full w-[90%] lg:w-[50%]"
