@@ -18,7 +18,7 @@ function ProjectCard({ project, isExpanded, onToggle }: { project: any, isExpand
             
             <div className="text-[#e4cebe] text-sm mb-4 leading-relaxed">
     {isExpanded 
-        ? project.desc.map((line, index) => (
+        ? project.desc.map((line: string, index: string) => (
             <p key={index} className="mb-2">{line}</p>
           ))
         : <p>{project.desc[0].substring(0, 100)}...</p>

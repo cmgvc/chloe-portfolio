@@ -6,8 +6,7 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
   const [isIdle, setIsIdle] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
+    let timeout: ReturnType<typeof setTimeout>;
     const handleScroll = () => setShowButton(window.scrollY > 300);
 
     const handleMouseMove = () => {
