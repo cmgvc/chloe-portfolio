@@ -49,24 +49,24 @@ function TravelStats() {
   );
 }
 
-function HeroVideo({ src }: { src: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      className="w-full h-96 rounded-3xl overflow-hidden border border-[#221d1a] shadow-2xl"
-    >
-      <video
-        src={src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="w-full h-full object-cover"
-      />
-    </motion.div>
-  );
-}
+// function HeroVideo({ src }: { src: string }) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 20 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       className="w-full h-96 rounded-3xl overflow-hidden border border-[#221d1a] shadow-2xl"
+//     >
+//       <video
+//         src={src}
+//         autoPlay
+//         muted
+//         loop
+//         playsInline
+//         className="w-full h-full object-cover"
+//       />
+//     </motion.div>
+//   );
+// }
 
 function FragmentGallery() {
   return (
