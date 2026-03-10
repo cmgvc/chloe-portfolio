@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import StatusBadge from "../../components/StatusBadge";
 import { photos } from "../../data/travel";
 
