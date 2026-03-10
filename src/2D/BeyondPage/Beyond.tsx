@@ -110,7 +110,7 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
           </div>
 
           <a
-            href="https://soundcloud.com/your-handle"
+            href="https://soundcloud.com/discover"
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
