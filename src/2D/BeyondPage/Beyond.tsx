@@ -1,3 +1,4 @@
+import StatusBadge from "../../components/StatusBadge";
 import { books } from "../../data/books";
 import { useState, useEffect } from "react";
 
@@ -18,7 +19,6 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Initial timer start
     timeout = setTimeout(() => setIsIdle(true), 3000);
 
     return () => {
@@ -135,7 +135,7 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
         >
           <div>
             <h2 className="text-2xl font-bold mb-2">Coordinates</h2>
-            <p className="text-[#A09990] mb-4">
+            <p className="text-[#A09990] mb-6 text-sm sm:text-base">
               I love travelling (who doesn’t?). I’ve always found that the best
               parts of my own life are actually a collection of things I’ve
               borrowed from others. This is a visual log of the places I’ve been
@@ -143,20 +143,25 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <a
-            href="https://www.google.com/maps/d/u/0/edit?mid=1_o7GMBrMHkchGayM-CM_xMiUP7n0II4&usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-2 group/link w-fit"
-          >
-            <div className="w-8 h-8 rounded-full bg-[#262A26] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
-              <span className="text-xs">📍</span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
+            <a
+              href="https://www.google.com/maps/d/u/0/edit?mid=1_o7GMBrMHkchGayM-CM_xMiUP7n0II4&usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 group/link"
+            >
+              <div className="w-8 h-8 rounded-full bg-[#262A26] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
+                <span className="text-xs">📍</span>
+              </div>
+              <span className="text-[#A09990] text-xs font-mono group-hover/link:text-[#F5E6CA] underline underline-offset-4">
+                View Map →
+              </span>
+            </a>
+            <div className="w-full sm:w-auto flex justify-start sm:justify-end sm:mt-0 mt-4">
+              <StatusBadge />
             </div>
-            <span className="text-[#A09990] text-xs font-mono group-hover/link:text-[#F5E6CA] underline underline-offset-4">
-              View Map →
-            </span>
-          </a>
+          </div>
         </div>
       </div>
       <div

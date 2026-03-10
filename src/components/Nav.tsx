@@ -130,7 +130,7 @@ export default function Nav({ setView }: NavProps) {
   ${
     isScrolled
       ? "bottom-5 right-5 sm:right-8 lg:right-12"
-      : "top-[6vh] right-5 sm:right-8 lg:right-[4%]"
+      : "top-[5.8vh] right-5 sm:right-8 lg:right-[4%]"
   }`}
       >
         <li
