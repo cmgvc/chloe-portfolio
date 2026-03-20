@@ -11,6 +11,37 @@ export interface Project {
 
 const projects: Project[] = [
   {
+    year: 2026,
+    name: "'Plinth' Interactive Development Sandbox",
+    tags: [
+      "Full-Stack",
+      "TypeScript",
+      "React",
+      "NodeJS",
+      "Fly.io",
+      "GitHub Actions",
+      "CI/CD",
+      "State Management",
+      "Render",
+      "GitHub Pages",
+    ],
+    desc: [
+      "Architected a 0-to-1 full-stack code editor and developer sandbox using TypeScript and React, featuring custom file-stacking logic for real-time, multi-file state synchronization. Engineered a file-management system that simulates local directory structures, enabling seamless code rendering and persistent state across multiple nodes. Designed a multi-platform CI/CD pipeline via GitHub Actions, automating deployments to Fly.io, Render, and GitHub Pages to ensure high availability and cross-origin connectivity.",
+    ],
+    tech: [
+      "TypeScript",
+      "React",
+      "NodeJS",
+      "Fly.io",
+      "GitHub Actions",
+      "Render",
+      "GitHub Pages",
+    ],
+    source: "https://github.com/cmgvc/plinth-spatial-ide",
+    demo: "https://cmgvc.github.io/plinth-spatial-ide/",
+    image: "/images/projects/2026/plinth.png",
+  },
+  {
     year: 2024,
     name: "'We Are Fit' AI-Powered App",
     tags: [
