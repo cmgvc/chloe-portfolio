@@ -26,7 +26,7 @@ const projects: Project[] = [
       "GitHub Pages",
     ],
     desc: [
-      "Architected a 0-to-1 full-stack code editor and developer sandbox using TypeScript and React, featuring custom file-stacking logic for real-time, multi-file state synchronization. Engineered a file-management system that simulates local directory structures, enabling seamless code rendering and persistent state across multiple nodes. Designed a multi-platform CI/CD pipeline via GitHub Actions, automating deployments to Fly.io, Render, and GitHub Pages to ensure high availability and cross-origin connectivity.",
+      "Architected a 0-to-1 full-stack code editor and developer sandbox using TypeScript and React, featuring a Figma-inspired interface for developers. Engineered a custom file-stacking and spatial management system allowing users to drag, drop, and resize multiple file windows within a unified canvas. Implemented real-time state synchronization across active nodes to simulate a local development environment with live code rendering. Designed a multi-platform CI/CD pipeline via GitHub Actions, automating synchronized deployments to Fly.io, Render, and GitHub Pages.",
     ],
     tech: [
       "TypeScript",
