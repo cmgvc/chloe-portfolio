@@ -10,7 +10,9 @@ function App() {
         <>
             {dimension === "3D" && <Website3D />}
             {dimension === "2D" && <Website2D />}
-            {dimension === "None" && <SelectionScreen />}
+            <Website2D />
+            {/* TODO: IMPLEMENT 3D PORTFOLIO */}
+            {/* {dimension === "None" && <SelectionScreen />} */} 
         </>
     );
 }

@@ -136,10 +136,11 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
           <div>
             <h2 className="text-2xl font-bold mb-2">Coordinates</h2>
             <p className="text-[#A09990] mb-6 text-sm sm:text-base">
-              I love travelling (who doesn’t?). I’ve always found that the best
-              parts of my own life are actually a collection of things I’ve
-              borrowed from others. This is a visual log of the places I’ve been
-              and the cultural fragments I’ve brought home to my own world.
+              I love traveling (honestly, who doesn't?). I've always found that
+              the coolest parts of my own life are really a collection of
+              things I’ve borrowed from other people and places. This is
+              basically just a visual log of where I’ve been and the little
+              cultural fragments I’ve brought back home with me.
             </p>
           </div>
 

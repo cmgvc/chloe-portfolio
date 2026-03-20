@@ -13,9 +13,12 @@ export default function Travel() {
           World Traveller
         </h1>
         <p className="text-[#e4cebe] max-w-xl mx-auto leading-relaxed">
-          My life is a collection of everything I’ve picked up along the way. I
-          head out, find a new vibe or a better way of living, and bring it
-          home. I'm a chronic observer and reimaginer.
+          I’ve always been a chronic observer. Whenever I’m out, I’m looking for
+          the little things, a certain vibe, a better way of doing something, or
+          just a detail that sticks. I try to leave a bit of my own perspective
+          behind - a conversation, a different way of looking at a problem, or
+          just some genuine energy - while I bring a fragment of that place back
+          home to build into my own life. Consider this the archive.
         </p>
       </header>
       <StatusBadge />
