@@ -39,7 +39,7 @@ const projects: Project[] = [
     ],
     source: "https://github.com/cmgvc/plinth-spatial-ide",
     demo: "https://cmgvc.github.io/plinth-spatial-ide/",
-    image: "/images/projects/2026/plinth.png",
+    image: "/images/projects/2026/plinth-demo.png",
   },
   {
     year: 2024,
@@ -91,7 +91,7 @@ const projects: Project[] = [
       "AWS S3",
     ],
     source: "https://github.com/cmgvc/Bitewise",
-    demo: "https://bite-wise.vercel.app/",
+    demo: "",
     image: "/images/projects/2024/bitewise.png",
   },
   {
@@ -124,7 +124,7 @@ const projects: Project[] = [
       "Agile",
     ],
     source: "",
-    demo: null,
+    demo: "",
     image: "/images/projects/2024/amazon.webp",
   },
   {
@@ -245,7 +245,8 @@ const projects: Project[] = [
       "Render",
     ],
     source: "",
-    demo: "https://gauravdogra.vercel.app/",
+    demo: "",
+    // demo: "https://gauravdogra.vercel.app/",
     image: "/images/projects/2025/freelance.png",
   },
 ];

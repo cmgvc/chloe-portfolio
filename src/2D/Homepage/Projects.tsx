@@ -3,6 +3,7 @@ import GitHub from "@mui/icons-material/GitHub";
 import PageLayout from "../PageLayout";
 import projects from "../../data/projects";
 import SectionSubtitle from "../../components/SectionSubtitle";
+import Launch from "@mui/icons-material/Launch";
 
 function ProjectCard({
   project,
@@ -34,7 +35,7 @@ function ProjectCard({
 
       <div className="text-[#e4cebe] text-sm mb-4 leading-relaxed">
         {isExpanded ? (
-          project.desc.map((line: string, index: string) => (
+          project.desc.map((line: string, index: number) => (
             <p key={index} className="mb-2">
               {line}
             </p>
@@ -63,23 +64,39 @@ function ProjectCard({
         />
       )}
 
-      <div className="mt-auto flex gap-4">
+      <div className="mt-auto flex items-center justify-between">
         <button
           onClick={onToggle}
-          className="text-[#F0C6A6] text-sm border-b border-[#F0C6A6]/30 hover:border-[#F0C6A6]"
+          className="text-[#F0C6A6] text-sm border-b border-[#F0C6A6]/30 hover:border-[#F0C6A6] transition-colors"
         >
           {isExpanded ? "Show Less" : "Show More"}
         </button>
-        {project.source && (
-          <a
-            href={project.source}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.text}
-          >
-            <GitHub fontSize="small" />
-          </a>
-        )}
+
+        <div className="flex gap-4 items-center">
+          {project.source && project.source !== "" && (
+            <a
+              href={project.source}
+              target="_blank"
+              rel="noreferrer"
+              className={`${styles.text} hover:opacity-80 transition-opacity`}
+              title="GitHub Repository"
+            >
+              <GitHub fontSize="small" />
+            </a>
+          )}
+
+          {project.demo && project.demo !== "" && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              className={`${styles.text} hover:opacity-80 transition-opacity`}
+              title="Live Demo"
+            >
+              <Launch fontSize="small" />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
