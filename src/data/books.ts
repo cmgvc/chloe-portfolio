@@ -79,7 +79,7 @@ export const books: Book[] = [
     title: "Red Rising",
     author: "Pierce Brown",
     tags: ["Sci-Fi", "Dystopian"],
-    shelf: "currently-reading",
+    shelf: "best",
     cover_i: 9780345539786,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/15839976-red-rising?ref=nav_sb_ss_1_6",
@@ -106,13 +106,13 @@ export const books: Book[] = [
   },
   {
     id: "11",
-    title: "The Well of Ascension",
+    title: "The Hero of Ages",
     author: "Brandon Sanderson",
     tags: ["Fantasy", "Epic"],
     shelf: "currently-reading",
-    cover_i: 9780765316882,
+    cover_i: 9780765316899,
     goodreadsUrl:
-      "https://www.goodreads.com/book/show/68429.The_Well_of_Ascension?ref=nav_sb_ss_1_7",
+      "https://www.goodreads.com/book/show/2767793-the-hero-of-ages",
   },
   {
     id: "12",
@@ -123,5 +123,15 @@ export const books: Book[] = [
     cover_i: 9780141439556,
     goodreadsUrl:
       "https://www.goodreads.com/book/show/6185.Wuthering_Heights?ref=nav_sb_ss_1_8",
+  },
+  {
+    id: "13",
+    title: "Golden Son",
+    author: "Pierce Brown",
+    tags: ["Sci-Fi", "Dystopian"],
+    shelf: "currently-reading",
+    cover_i: 9780345539816,
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/18966819-golden-son?ac=1&from_search=true&qid=kve0UthpcH&rank=4",
   },
 ];

@@ -112,6 +112,7 @@ const projects: Project[] = [
       "Developed a full-stack platform to automate the execution of an accounting service that redrives workflows triggered by financially significant events, improving operational efficiency. Built with a React frontend and Java backend, the platform leverages AWS Lambda functions to pull data from AWS S3 and run redrive operations based on incremental efficiency improvements. The system uses AWS EventBridge for event-driven architecture and DynamoDB for scalable data storage. IAM roles were implemented for secure authentication and resource access. The platform, deployed on AWS, was used by over 100 Amazon developers and internal employees to automate critical accounting processes, freeing the team to focus on more strategic tasks.",
     ],
     tech: [
+      "TypeScript",
       "React.js",
       "Java",
       "AWS Lambda",
@@ -131,6 +132,7 @@ const projects: Project[] = [
     year: 2024,
     name: "'ParkinSync' Full-Stack Real-Time Data Portal",
     tags: [
+      "TypeScript",
       "Full-Stack",
       "Real-Time",
       "Healthcare",
@@ -166,6 +168,7 @@ const projects: Project[] = [
       "Flock is a responsive scheduling platform built with the MERN stack to streamline coordination between McGill Computer Science faculty and students. I led the end-to-end development, from initial wireframing and user-flow storyboarding to production deployment. My core contributions included engineering the scheduling logic, enabling real-time availability tracking and automated meeting workflows, and architecting a scalable MongoDB schema to manage complex user data efficiently. Additionally, I developed an intuitive, responsive dashboard that provides seamless meeting lifecycle management, ensuring a cohesive user experience across all faculty and student roles.",
     ],
     tech: [
+      "TypeScript",
       "React.js",
       "NodeJS",
       "Express",
@@ -181,11 +184,11 @@ const projects: Project[] = [
   {
     year: 2024,
     name: "Personal Portfolio",
-    tags: ["React", "Vercel", "HTML/CSS", "Personal", "Website"],
+    tags: ["TypeScript", "React", "Vercel", "HTML/CSS", "Personal", "Website"],
     desc: [
       "Developed a portfolio website using React to showcase projects, skills, and professional experiences with a sleek and responsive design.",
     ],
-    tech: ["React", "HTML/CSS", "Vercel"],
+    tech: ["TypeScript", "React", "HTML/CSS", "Vercel"],
     source: "https://github.com/cmgvc/chloegav",
     demo: "https://chloegav.vercel.app/",
     image: "/images/projects/2024/portfolio.png",
@@ -206,6 +209,7 @@ const projects: Project[] = [
       "Developed a content management platform enabling non-technical users to easily add, edit, and organize data in their personal portfolio, with a sleek and responsive user interface.",
     ],
     tech: [
+      "TypeScript",
       "React",
       "JavaScript",
       "NodeJS",
@@ -236,6 +240,7 @@ const projects: Project[] = [
       "Designed and developed responsive websites tailored to the unique needs of small businesses and individuals. Focused on creating user-friendly, visually appealing, and functional websites to help clients establish their online presence. Projects range from portfolio websites to e-commerce platforms, always with a focus on delivering results and client satisfaction.",
     ],
     tech: [
+      "TypeScript",
       "React.js",
       "NodeJS",
       "PostgreSQL",

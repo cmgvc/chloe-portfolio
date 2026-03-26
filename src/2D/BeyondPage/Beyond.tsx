@@ -145,20 +145,15 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
-            <a
-              href="https://www.google.com/maps/d/u/0/edit?mid=1_o7GMBrMHkchGayM-CM_xMiUP7n0II4&usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+            <p
               onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 group/link"
             >
               <div className="w-8 h-8 rounded-full bg-[#262A26] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
                 <span className="text-xs">📍</span>
               </div>
-              <span className="text-[#A09990] text-xs font-mono group-hover/link:text-[#F5E6CA] underline underline-offset-4">
-                View Map →
-              </span>
-            </a>
+
+            </p>
             <div className="w-full sm:w-auto flex justify-start sm:justify-end sm:mt-0 mt-4">
               <StatusBadge />
             </div>

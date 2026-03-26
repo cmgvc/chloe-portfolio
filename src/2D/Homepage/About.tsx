@@ -61,7 +61,7 @@ export default function About() {
       <SectionSubtitle>
         I create things: complex systems in the terminal and my life outside of
         it. I spend my time deep in software architecture and low-level logic. I
-        spend the rest of it building rhythm - whether it's through the music I
+        spend the rest of it building rhythm through the music I
         mix, the laps I swim, the yoga I practice or through the pages of a new
         book.
       </SectionSubtitle>
