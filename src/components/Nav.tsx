@@ -125,7 +125,7 @@ export default function Nav({ setView }: NavProps) {
           ))}
         </ul>
       </header>
-      <ul
+      {/* <ul
         className={`fixed z-20 flex items-center duration-300 
   ${
     isScrolled
@@ -150,7 +150,7 @@ export default function Nav({ setView }: NavProps) {
             {isScrolled ? <HailIcon /> : "beyond the terminal"}
           </span>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }
