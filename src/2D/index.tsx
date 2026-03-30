@@ -11,6 +11,7 @@ import Beyond from "./BeyondPage/Beyond";
 import Books from "./BeyondPage/Books";
 import Mixes from "./BeyondPage/Mixes";
 import Travel from "./BeyondPage/Travel";
+import Curiosities from "./BeyondPage/Curiosities";
 
 export default function Website2D() {
   const [view, setView] = useState("home");
@@ -41,10 +42,11 @@ export default function Website2D() {
           <Contact />
         </main>
       ) : (
-        <main>
+        <main className="flex flex-col items-center px-8 md:px-16">
           <Beyond onBack={() => setView("home")} />
           <Books />
           <Mixes />
+          <Curiosities />
           <Travel />
         </main>
       )}

@@ -1,15 +1,27 @@
 export interface TravelPhoto {
   src: string;
   caption: string;
-  size: "large" | "portrait" | "small";
+  size: "large" | "portrait" | "portrait-lg" | "small";
   pos?: string;
 }
 
 export const photos: TravelPhoto[] = [
   {
+    src: "/images/travel/redrock.JPG",
+    caption: "Red Rock Canyon, USA",
+    size: "large",
+    pos: "object-[50%_50%]",
+  },
+  {
+    src: "/images/travel/lake_louise.JPG",
+    caption: "Lake Louise, AB",
+    size: "small",
+    pos: "object-[10%_60%]",
+  },
+  {
     src: "/images/travel/iaovalley.jpeg",
     caption: "Iao Valley, Hawaii",
-    size: "large",
+    size: "small",
     pos: "object-[50%_50%]",
   },
   {
@@ -31,14 +43,14 @@ export const photos: TravelPhoto[] = [
     pos: "object-[10%_60%]",
   },
   {
-    src: "/images/travel/volcano.jpeg",
-    caption: "Tropical storm in Volcano, Hawaii",
+    src: "/images/travel/ice_hotel.JPG",
+    caption: "Ice Hotel, QC",
     size: "portrait",
-    pos: "object-[50%_50%]",
+    pos: "object-[10%_60%]",
   },
   {
-    src: "/images/travel/akakafalls.jpeg",
-    caption: "'Akaka Falls, Hawaii",
+    src: "/images/travel/volcano.jpeg",
+    caption: "Tropical storm in Volcano, Hawaii",
     size: "portrait",
     pos: "object-[50%_50%]",
   },
@@ -48,6 +60,13 @@ export const photos: TravelPhoto[] = [
     size: "large",
     pos: "",
   },
+  {
+    src: "/images/travel/akakafalls.jpeg",
+    caption: "'Akaka Falls, Hawaii",
+    size: "portrait",
+    pos: "object-[50%_50%]",
+  },
+
   {
     src: "/images/travel/haleakala_sunset.jpeg",
     caption: "Haleakala Sunset",

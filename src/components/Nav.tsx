@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import scrollTo from "../utils/scrollTo";
-// import HailIcon from "@mui/icons-material/Hail";
+import HailIcon from "@mui/icons-material/Hail";
 
 interface NavLinkProps {
   divId: string;
@@ -33,8 +33,8 @@ function NavLink({ divId, name, active, icon }: NavLinkProps) {
   );
 }
 
-export default function Nav({}: NavProps) {
-// export default function Nav({ setView }: NavProps) {
+// export default function Nav({}: NavProps) {
+export default function Nav({ setView }: NavProps) {
   const [activeDiv, setActiveDiv] = useState("home-div");
   const [scrollY, setScrollY] = useState(0);
 
@@ -126,7 +126,7 @@ export default function Nav({}: NavProps) {
           ))}
         </ul>
       </header>
-      {/* <ul
+      <ul
         className={`fixed z-20 flex items-center duration-300 
   ${
     isScrolled
@@ -151,7 +151,7 @@ export default function Nav({}: NavProps) {
             {isScrolled ? <HailIcon /> : "beyond the terminal"}
           </span>
         </li>
-      </ul> */}
+      </ul>
     </div>
   );
 }

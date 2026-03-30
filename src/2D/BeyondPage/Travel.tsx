@@ -80,6 +80,7 @@ function FragmentGallery() {
           className={`relative group overflow-hidden rounded-2xl 
             ${photo.size === "large" ? "col-span-2 row-span-2" : ""}
             ${photo.size === "portrait" ? "col-span-1 row-span-2" : ""}
+            ${photo.size === "portrait-lg" ? "col-span-2 row-span-3" : ""}
             ${photo.size === "small" ? "col-span-1 row-span-1" : ""}
           `}
         >

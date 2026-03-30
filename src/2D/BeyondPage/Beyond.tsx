@@ -124,7 +124,24 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             </span>
           </a>
         </div>
-
+        <div
+          onClick={() =>
+            document
+              .getElementById("curiosities-section")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="bg-[#262A26] p-8 rounded-3xl border border-[#3A4038] hover:border-[#A65D46] transition-all group cursor-pointer flex flex-col justify-between"
+        >
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Curiosities</h2>
+            <p className="text-[#A09990] text-sm mb-4">
+              Niche hobbies and things I've tried.
+            </p>
+          </div>
+          <span className="text-[#A65D46] font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+            Scroll to explore →
+          </span>
+        </div>
         <div
           onClick={() =>
             document
@@ -137,10 +154,10 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             <h2 className="text-2xl font-bold mb-2">Coordinates</h2>
             <p className="text-[#A09990] mb-6 text-sm sm:text-base">
               I love traveling (honestly, who doesn't?). I've always found that
-              the coolest parts of my own life are really a collection of
-              things I’ve borrowed from other people and places. This is
-              basically just a visual log of where I’ve been and the little
-              cultural fragments I’ve brought back home with me.
+              the coolest parts of my own life are really a collection of things
+              I’ve borrowed from other people and places. This is basically just
+              a visual log of where I’ve been and the little cultural fragments
+              I’ve brought back home with me.
             </p>
           </div>
 
@@ -152,7 +169,6 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               <div className="w-8 h-8 rounded-full bg-[#262A26] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
                 <span className="text-xs">📍</span>
               </div>
-
             </p>
             <div className="w-full sm:w-auto flex justify-start sm:justify-end sm:mt-0 mt-4">
               <StatusBadge />
