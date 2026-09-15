@@ -59,12 +59,23 @@ export const curiosities: Curiosity[] = [
     pos: "object-center",
   },
   {
-  id: 6,
-  title: "Boxing",
-  tag: "Sport",
-  emoji: "🥊",
-  photo: "/images/hobbies/boxing.jpeg",
-  caption: "Early mornings, heavy bags, and learning that footwork matters more than the punch.",
-  pos: "object-[90%_60%]",
-},
+    id: 6,
+    title: "Boxing",
+    tag: "Sport",
+    emoji: "🥊",
+    photo: "/images/hobbies/boxing.jpeg",
+    caption:
+      "Early mornings, heavy bags, and learning that footwork matters more than the punch.",
+    pos: "object-[90%_60%]",
+  },
+  {
+    id: 7,
+    title: "Horology",
+    tag: "Craft",
+    emoji: "⌚",
+    photo: "/images/hobbies/horology.jpg",
+    caption:
+      "Mechanical watches, clock movements, and the quiet obsession of tiny machines keeping time without a battery.",
+    pos: "object-[42%_32%]",
+  },
 ];

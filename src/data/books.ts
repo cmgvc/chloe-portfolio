@@ -72,6 +72,16 @@ export const books: Book[] = [
     goodreadsUrl:
       "https://www.goodreads.com/book/show/76703559-throne-of-glass?ref=nav_sb_ss_2_9",
   },
+  {
+    id: "14",
+    title: "The Fifth Season",
+    author: "N.K. Jemisin",
+    tags: ["Fantasy", "Science Fiction"],
+    shelf: "best",
+    cover_i: 9780316229296,
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/19161852-the-fifth-season",
+  },
 
   // CURRENTLY READING SHELF
   {
