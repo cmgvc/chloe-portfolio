@@ -131,18 +131,8 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
-            <p
-              onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-2 group/link"
-            >
-              <div className="w-8 h-8 border border-line flex items-center justify-center text-clay">
-                <span className="text-xs">📍</span>
-              </div>
-            </p>
-            <div className="w-full sm:w-auto flex justify-start sm:justify-end sm:mt-0 mt-4">
-              <StatusBadge />
-            </div>
+          <div className="flex justify-end">
+            <StatusBadge />
           </div>
         </div>
       </div>

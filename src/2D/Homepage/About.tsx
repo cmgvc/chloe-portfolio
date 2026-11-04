@@ -128,8 +128,8 @@ export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
           </FadeInText>
         </div>
 
-        <FadeInText delay={0.15} className="lg:sticky lg:top-24">
-          <figure className="bg-sand p-3">
+        <FadeInText delay={0.15} className="lg:sticky lg:top-24 w-full">
+          <figure className="bg-sand p-3 mx-auto w-full max-w-[13.5rem] sm:max-w-[16rem] md:max-w-[18rem] lg:max-w-none">
             <div className="relative aspect-[3/4] overflow-hidden">
               <img
                 src="/images/headshot.png"

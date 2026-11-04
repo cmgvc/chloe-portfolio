@@ -34,28 +34,26 @@ export default function Books() {
   const displayBooks = loading ? books : myBooks;
 
   return (
-    <div
-      id="my-library-section"
-      className="min-h-screen p-8 max-w-7xl mx-auto ..."
-    >
-      {" "}
-      <header className="mb-12">
-        <h1 className="font-display text-5xl font-medium mb-4 text-ink tracking-tight">
-          My Library
-        </h1>
-        <p className="text-mist">
-          A living record of my current reads and all-time favs.
-        </p>
-      </header>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Shelf
-          title="Current Reads"
-          books={displayBooks.filter((b) => b.shelf === "currently-reading")}
-        />
-        <Shelf
-          title="My recommendations"
-          books={displayBooks.filter((b) => b.shelf === "best")}
-        />
+    <div id="my-library-section" className="w-full px-6 sm:px-10 py-16">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-12">
+          <h1 className="font-display text-5xl font-medium mb-4 text-ink tracking-tight">
+            My Library
+          </h1>
+          <p className="text-mist">
+            A living record of my current reads and all-time favs.
+          </p>
+        </header>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Shelf
+            title="Current Reads"
+            books={displayBooks.filter((b) => b.shelf === "currently-reading")}
+          />
+          <Shelf
+            title="My recommendations"
+            books={displayBooks.filter((b) => b.shelf === "best")}
+          />
+        </div>
       </div>
     </div>
   );
@@ -71,7 +69,7 @@ function Shelf({ title, books }: { title: string; books: Book[] }) {
         </span>
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
