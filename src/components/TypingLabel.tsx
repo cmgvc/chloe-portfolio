@@ -2,48 +2,59 @@ import { useEffect, useRef } from "react";
 import sleep from "../utils/sleep";
 import { TYPING_DELAY, TYPING_SPEED } from "../data/home";
 
-interface TypingLabelProps {
-    className?: string;
-    words: string[];
+interface TypingWord {
+  article: string;
+  text: string;
 }
 
-export default function TypingLabel({ className, words }: TypingLabelProps) {
-    const labelRef = useRef<HTMLSpanElement>(null);
+interface TypingLabelProps {
+  wordClassName?: string;
+  words: TypingWord[];
+}
 
-    useEffect(() => {
-        let isMounted = true;
-        
-        async function runTypingAnimation() {
-            if (!labelRef.current) return;
+export default function TypingLabel({ wordClassName, words }: TypingLabelProps) {
+  const articleRef = useRef<HTMLSpanElement>(null);
+  const wordRef = useRef<HTMLSpanElement>(null);
 
-            let wordIndex = 0;
+  useEffect(() => {
+    let isMounted = true;
 
-            while (isMounted) {
-                const currentWord = words[wordIndex];
+    async function runTypingAnimation() {
+      let wordIndex = 0;
 
-                // Type the word
-                for (let i = 0; i <= currentWord.length; i++) {
-                    if (!isMounted) return;
-                    labelRef.current.textContent = currentWord.slice(0, i);
-                    await sleep(TYPING_SPEED);
-                }
-                await sleep(TYPING_DELAY);
-
-                // Backspace the word
-                for (let i = currentWord.length; i >= 0; i--) {
-                    if (!isMounted) return;
-                    labelRef.current.textContent = currentWord.slice(0, i);
-                    await sleep(TYPING_SPEED);
-                }
-
-                // Cycle to next word
-                wordIndex = (wordIndex + 1) % words.length;
-            }
+      while (isMounted) {
+        const current = words[wordIndex];
+        if (articleRef.current) {
+          articleRef.current.textContent = `${current.article} `;
         }
 
-        runTypingAnimation();
-        return () => { isMounted = false; };
-    }, [words]);
+        for (let i = 0; i <= current.text.length; i++) {
+          if (!isMounted || !wordRef.current) return;
+          wordRef.current.textContent = current.text.slice(0, i);
+          await sleep(TYPING_SPEED);
+        }
+        await sleep(TYPING_DELAY);
 
-    return <span className={className} ref={labelRef} />;
+        for (let i = current.text.length; i >= 0; i--) {
+          if (!isMounted || !wordRef.current) return;
+          wordRef.current.textContent = current.text.slice(0, i);
+          await sleep(TYPING_SPEED);
+        }
+
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+    }
+
+    runTypingAnimation();
+    return () => {
+      isMounted = false;
+    };
+  }, [words]);
+
+  return (
+    <>
+      <span ref={articleRef} />
+      <span className={wordClassName} ref={wordRef} />
+    </>
+  );
 }

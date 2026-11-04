@@ -48,8 +48,8 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
         </h1>
         <p className="text-lg text-mist max-w-2xl leading-relaxed">
           The work lives on the main page. This is the rest of what I take
-          seriously — books, music, travel, and the hobbies that don’t fit in
-          a job description.
+          seriously — books, travel, and the hobbies that don’t fit in a job
+          description.
         </p>
       </div>
 
@@ -94,36 +94,6 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
           </div>
         </div>
 
-        <div
-          onClick={() =>
-            document
-              .getElementById("mixes-section")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="bg-sand/60 p-8 border border-line hover:border-clay transition-colors group cursor-pointer flex flex-col justify-between"
-        >
-          <div>
-            <h2 className="font-display text-3xl mb-2">Mixes</h2>
-            <p className="text-mist text-sm mb-4">
-              Selected mixes and live recordings.
-            </p>
-          </div>
-
-          <a
-            href="https://soundcloud.com/discover"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-2 group/link"
-          >
-            <div className="w-8 h-8 border border-line flex items-center justify-center text-clay group-hover/link:bg-clay group-hover/link:text-paper transition">
-              <span className="text-xs">▶</span>
-            </div>
-            <span className="text-mist text-xs group-hover/link:text-ink underline underline-offset-4">
-              Listen on SoundCloud →
-            </span>
-          </a>
-        </div>
         <div
           onClick={() =>
             document

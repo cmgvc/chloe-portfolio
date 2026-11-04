@@ -43,9 +43,28 @@ export const curiosities: Curiosity[] = [
     title: "Volunteer Medical Trip to Peru",
     tag: "Travel & Service",
     emoji: "🏥",
-    photo: "",
+    photo: "/images/hobbies/peru.jpg",
     caption:
       "Spent time in rural clinics outside Lima, assisting with patient care and community health outreach.",
+    pos: "object-[center_40%]",
+  },
+  {
+    id: 8,
+    title: "Soccer",
+    tag: "Sport",
+    emoji: "⚽",
+    photo: "",
+    caption: "The game I never really put down.",
+    pos: "object-center",
+  },
+  {
+    id: 9,
+    title: "Herbalism",
+    tag: "Home apothecary",
+    emoji: "🌿",
+    photo: "",
+    caption:
+      "Tinctures, teas, and learning what can be made at the kitchen counter.",
     pos: "object-center",
   },
   {
@@ -77,5 +96,37 @@ export const curiosities: Curiosity[] = [
     caption:
       "Mechanical watches, clock movements, and the quiet obsession of tiny machines keeping time without a battery.",
     pos: "object-[42%_32%]",
+  },
+  {
+    id: 10,
+    title: "Bouldering",
+    tag: "Sport",
+    emoji: "🧗",
+    photo: "",
+    caption: "Short problems, chalky hands, and figuring out the next hold.",
+  },
+  {
+    id: 11,
+    title: "Yoga",
+    tag: "Practice",
+    emoji: "🧘",
+    photo: "",
+    caption: "Breath, balance, and the practice I keep coming back to.",
+  },
+  {
+    id: 12,
+    title: "Flute",
+    tag: "Music",
+    emoji: "🪈",
+    photo: "",
+    caption: "A quieter instrument, and one I still pick up.",
+  },
+  {
+    id: 13,
+    title: "Guitar",
+    tag: "Music",
+    emoji: "🎸",
+    photo: "",
+    caption: "Chords at the kitchen table, mostly for myself.",
   },
 ];

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageLayout from "../PageLayout";
 import FadeInText from "../../components/FadeIn";
 import SectionSubtitle from "../../components/SectionSubtitle";
@@ -18,6 +19,8 @@ const FOCUSES = [
 ];
 
 export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
+  const [active, setActive] = useState(0);
+
   return (
     <PageLayout label="About" title="What I do" divId="about-div" icon={null}>
       <SectionSubtitle>
@@ -54,22 +57,54 @@ export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
           </FadeInText>
 
           <ul className="mt-10 border-t border-line">
-            {FOCUSES.map((focus, i) => (
-              <FadeInText
-                key={focus.title}
-                delay={0.15 + i * 0.06}
-                className="border-b border-line"
-              >
-                <li className="py-5 grid sm:grid-cols-[13rem_1fr] gap-1 sm:gap-8">
-                  <span className="font-display text-xl text-ink">
-                    {focus.title}
-                  </span>
-                  <span className="text-sm leading-relaxed text-mist self-center">
-                    {focus.body}
-                  </span>
-                </li>
-              </FadeInText>
-            ))}
+            {FOCUSES.map((focus, i) => {
+              const on = active === i;
+              return (
+                <FadeInText
+                  key={focus.title}
+                  delay={0.15 + i * 0.06}
+                  className="border-b border-line"
+                >
+                  <li>
+                    <button
+                      type="button"
+                      onMouseEnter={() => setActive(i)}
+                      onFocus={() => setActive(i)}
+                      onClick={() => setActive(i)}
+                      className={`w-full text-left py-5 pl-4 border-l-2 transition-colors duration-300 ${
+                        on
+                          ? "border-clay bg-sand/50"
+                          : "border-transparent hover:bg-sand/30"
+                      }`}
+                    >
+                      <span className="flex items-baseline gap-4">
+                        <span className="text-[11px] tracking-[0.18em] text-clay">
+                          0{i + 1}
+                        </span>
+                        <span
+                          className={`font-display text-2xl transition-colors ${
+                            on ? "text-ink" : "text-mist"
+                          }`}
+                        >
+                          {focus.title}
+                        </span>
+                      </span>
+                      <span
+                        className={`grid transition-all duration-300 ${
+                          on ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                        }`}
+                      >
+                        <span className="overflow-hidden">
+                          <span className="block pt-2 pl-9 text-sm leading-relaxed text-mist max-w-xl">
+                            {focus.body}
+                          </span>
+                        </span>
+                      </span>
+                    </button>
+                  </li>
+                </FadeInText>
+              );
+            })}
           </ul>
 
           <FadeInText delay={0.35}>
@@ -94,17 +129,20 @@ export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
         </div>
 
         <FadeInText delay={0.15} className="lg:sticky lg:top-24">
-          <figure>
-            <div className="bg-sand p-3">
+          <figure className="bg-sand p-3">
+            <div className="relative aspect-[3/4] overflow-hidden">
               <img
                 src="/images/headshot.png"
                 alt="Chloe Gavrilovic"
-                className="w-full aspect-[3/4] object-cover object-[center_18%]"
+                className="absolute max-w-none"
+                style={{
+                  width: "200%",
+                  height: "100%",
+                  left: "-64.87%",
+                  top: "0%",
+                }}
               />
             </div>
-            <figcaption className="mt-3 text-[11px] uppercase tracking-[0.22em] text-mist">
-              Montreal
-            </figcaption>
           </figure>
         </FadeInText>
       </div>

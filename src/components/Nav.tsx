@@ -75,10 +75,10 @@ export default function Nav({ setView }: NavProps) {
       <div className="h-16 px-6 sm:px-10 lg:px-16 flex items-center justify-between gap-6">
         <button
           type="button"
-          className="font-display text-[1.65rem] leading-none text-ink shrink-0"
+          className="font-display italic text-[1.85rem] leading-none tracking-normal text-ink shrink-0"
           onClick={() => scrollTo("home-div")}
         >
-          Chloe
+          C.G.
         </button>
 
         <ul className="hidden md:flex items-center gap-8">

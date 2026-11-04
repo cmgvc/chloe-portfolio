@@ -1,7 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import { Preload, View } from "@react-three/drei";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
+import Intro from "../components/Intro";
 import Home from "./Homepage/Home";
 import About from "./Homepage/About";
 import Projects from "./Homepage/Projects";
@@ -9,12 +10,22 @@ import Journey from "./Homepage/Journey";
 import Contact from "./Homepage/Contact";
 import Beyond from "./BeyondPage/Beyond";
 import Books from "./BeyondPage/Books";
-import Mixes from "./BeyondPage/Mixes";
 import Travel from "./BeyondPage/Travel";
 import Curiosities from "./BeyondPage/Curiosities";
 
 export default function Website2D() {
   const [view, setView] = useState("home");
+  const [intro, setIntro] = useState(
+    () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const mainRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const node = mainRef.current;
+    if (!node) return;
+    if (intro) node.setAttribute("inert", "");
+    else node.removeAttribute("inert");
+  }, [intro, view]);
 
   return (
     <div className="relative">
@@ -35,8 +46,12 @@ export default function Website2D() {
         <Preload all />
       </Canvas>
 
+      {intro && view === "home" ? (
+        <Intro onDone={() => setIntro(false)} />
+      ) : null}
+
       {view === "home" ? (
-        <main>
+        <main ref={mainRef} aria-hidden={intro || undefined}>
           <Nav setView={setView} />
           <Home />
           <About
@@ -53,7 +68,6 @@ export default function Website2D() {
         <main className="flex flex-col items-center">
           <Beyond onBack={() => setView("home")} />
           <Books />
-          <Mixes />
           <Curiosities />
           <Travel />
         </main>

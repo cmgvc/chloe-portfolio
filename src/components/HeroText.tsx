@@ -37,7 +37,8 @@ export default function HeroText({ className = "" }: HeroTextProps) {
 
       <FadeInText delay={0.36}>
         <p className="mt-6 font-display italic text-2xl text-ink min-h-[2rem]">
-          I am a<TypingLabel className="text-clay not-italic" words={TYPING_TEXTS} />
+          I am{" "}
+          <TypingLabel wordClassName="text-clay not-italic" words={TYPING_TEXTS} />
         </p>
       </FadeInText>
 
