@@ -2,6 +2,7 @@ export interface Project {
   year: number;
   name: string;
   tags: string[];
+  summary: string;
   desc: string[];
   tech: string[];
   source: string | null;
@@ -10,6 +11,42 @@ export interface Project {
 }
 
 const projects: Project[] = [
+  {
+    year: 2024,
+    name: "Amazon Internal Service for Redriving Accounting Workflows",
+    tags: [
+      "Full-Stack",
+      "AWS",
+      "Enterprise",
+      "Automation",
+      "React",
+      "Java",
+      "CI/CD",
+      "Agile",
+      "Git",
+    ],
+    summary:
+      "Internal platform that automated accounting redrive workflows for more than 100 Amazon engineers.",
+    desc: [
+      "Developed a full-stack platform to automate the execution of an accounting service that redrives workflows triggered by financially significant events, improving operational efficiency. Built with a React frontend and Java backend, the platform leverages AWS Lambda functions to pull data from AWS S3 and run redrive operations based on incremental efficiency improvements. The system uses AWS EventBridge for event-driven architecture and DynamoDB for scalable data storage. IAM roles were implemented for secure authentication and resource access. The platform, deployed on AWS, was used by over 100 Amazon developers and internal employees to automate critical accounting processes, freeing the team to focus on more strategic tasks.",
+    ],
+    tech: [
+      "TypeScript",
+      "React.js",
+      "Java",
+      "AWS Lambda",
+      "AWS EventBridge",
+      "AWS DynamoDB",
+      "IAM",
+      "AWS S3",
+      "CI/CD",
+      "Git",
+      "Agile",
+    ],
+    source: "",
+    demo: "",
+    image: "/images/projects/2024/amazon.webp",
+  },
   {
     year: 2026,
     name: "'Plinth' Interactive Development Sandbox",
@@ -25,6 +62,8 @@ const projects: Project[] = [
       "Render",
       "GitHub Pages",
     ],
+    summary:
+      "A spatial code editor and developer sandbox, from the interface through multi-platform CI/CD.",
     desc: [
       "Architected a 0-to-1 full-stack code editor and developer sandbox using TypeScript and React, featuring a Figma-inspired interface for developers. Engineered a custom file-stacking and spatial management system allowing users to drag, drop, and resize multiple file windows within a unified canvas. Implemented real-time state synchronization across active nodes to simulate a local development environment with live code rendering. Designed a multi-platform CI/CD pipeline via GitHub Actions, automating synchronized deployments to Fly.io, Render, and GitHub Pages.",
     ],
@@ -57,6 +96,8 @@ const projects: Project[] = [
       "AI",
       "LLM",
     ],
+    summary:
+      "Fitness app with AI-generated daily challenges, accounts, progress tracking, and leaderboards.",
     desc: [
       "Developed a web-based fitness application that motivates users to stay active with daily challenges, dynamically generated using Gemini Google AI across three difficulty levels: beginner, intermediate, and advanced. Implemented secure user authentication for personalized experiences, including progress tracking, social sharing, and gamified leaderboards to boost engagement. Built using React.js for the frontend, Node.js with Express for the backend, and MongoDB for data management. Ensured seamless functionality and deployment with Vercel and Render.",
     ],
@@ -78,6 +119,8 @@ const projects: Project[] = [
     year: 2024,
     name: "'BiteWise' AI-Powered Food Waste Reduction App",
     tags: ["Full-Stack", "Hackathon"],
+    summary:
+      "Hackathon app that tracks kitchen inventory and suggests recipes to cut food waste.",
     desc: [
       "Developed a web-based application to reduce food waste by tracking kitchen inventory and suggesting recipes based on expiration dates and user preferences. Trained a machine learning model using TensorFlow for image and webcam object recognition to identify grocery items, automating inventory updates. Used AWS S3 for secure storage of user-uploaded images and data. Implemented user authentication for personalized recipe recommendations and dietary management. Built with React.js and CSS for a responsive frontend, Node.js with Express for the backend, and MongoDB for real-time inventory tracking. Deployed using Vercel and AWS services for scalability and reliability.",
     ],
@@ -96,40 +139,6 @@ const projects: Project[] = [
   },
   {
     year: 2024,
-    name: "Amazon Internal Service for Redriving Accounting Workflows",
-    tags: [
-      "Full-Stack",
-      "AWS",
-      "Enterprise",
-      "Automation",
-      "React",
-      "Java",
-      "CI/CD",
-      "Agile",
-      "Git",
-    ],
-    desc: [
-      "Developed a full-stack platform to automate the execution of an accounting service that redrives workflows triggered by financially significant events, improving operational efficiency. Built with a React frontend and Java backend, the platform leverages AWS Lambda functions to pull data from AWS S3 and run redrive operations based on incremental efficiency improvements. The system uses AWS EventBridge for event-driven architecture and DynamoDB for scalable data storage. IAM roles were implemented for secure authentication and resource access. The platform, deployed on AWS, was used by over 100 Amazon developers and internal employees to automate critical accounting processes, freeing the team to focus on more strategic tasks.",
-    ],
-    tech: [
-      "TypeScript",
-      "React.js",
-      "Java",
-      "AWS Lambda",
-      "AWS EventBridge",
-      "AWS DynamoDB",
-      "IAM",
-      "AWS S3",
-      "CI/CD",
-      "Git",
-      "Agile",
-    ],
-    source: "",
-    demo: "",
-    image: "/images/projects/2024/amazon.webp",
-  },
-  {
-    year: 2024,
     name: "'ParkinSync' Full-Stack Real-Time Data Portal",
     tags: [
       "TypeScript",
@@ -142,6 +151,8 @@ const projects: Project[] = [
       "EMG",
       "Data Visualization",
     ],
+    summary:
+      "Real-time EMG portal for tremor monitoring, built with the McGill Biomechanics Club.",
     desc: [
       "As part of the McGill Biomechanics Club, I built a full-stack platform to display real-time EMG (electromyography) data streams, specifically for tremor monitoring in patients with neurological conditions like Parkinson's disease. The platform enabled healthcare professionals and researchers to monitor and analyze muscle activity associated with tremors, providing insights into the frequency, intensity, and progression of tremors over time. It featured real-time data visualization with detailed charts and metrics to track tremor patterns and assess treatment effectiveness. The backend, developed using Flask, ensured seamless, low-latency data transmission from EMG devices to the platform. The frontend, built with React.js, offered an intuitive interface for users to adjust data display settings, view historical trends, and analyze muscle response patterns. This platform supports ongoing research and monitoring, contributing to more effective tremor management and treatment evaluation.",
     ],
@@ -164,6 +175,8 @@ const projects: Project[] = [
       "HTML/CSS",
       "Git",
     ],
+    summary:
+      "Scheduling platform for McGill Computer Science faculty and students, from wireframes to production.",
     desc: [
       "Flock is a responsive scheduling platform built with the MERN stack to streamline coordination between McGill Computer Science faculty and students. I led the end-to-end development, from initial wireframing and user-flow storyboarding to production deployment. My core contributions included engineering the scheduling logic, enabling real-time availability tracking and automated meeting workflows, and architecting a scalable MongoDB schema to manage complex user data efficiently. Additionally, I developed an intuitive, responsive dashboard that provides seamless meeting lifecycle management, ensuring a cohesive user experience across all faculty and student roles.",
     ],
@@ -185,6 +198,8 @@ const projects: Project[] = [
     year: 2024,
     name: "Personal Portfolio",
     tags: ["TypeScript", "React", "Vercel", "HTML/CSS", "Personal", "Website"],
+    summary:
+      "An earlier portfolio, built to present projects and experience in one place.",
     desc: [
       "Developed a portfolio website using React to showcase projects, skills, and professional experiences with a sleek and responsive design.",
     ],
@@ -205,6 +220,8 @@ const projects: Project[] = [
       "Vercel",
       "Render",
     ],
+    summary:
+      "A content tool so non-technical users can edit a portfolio without touching the code.",
     desc: [
       "Developed a content management platform enabling non-technical users to easily add, edit, and organize data in their personal portfolio, with a sleek and responsive user interface.",
     ],
@@ -236,6 +253,8 @@ const projects: Project[] = [
       "Vercel",
       "Render",
     ],
+    summary:
+      "Client sites for small businesses and individuals, from portfolios to e-commerce.",
     desc: [
       "Designed and developed responsive websites tailored to the unique needs of small businesses and individuals. Focused on creating user-friendly, visually appealing, and functional websites to help clients establish their online presence. Projects range from portfolio websites to e-commerce platforms, always with a focus on delivering results and client satisfaction.",
     ],

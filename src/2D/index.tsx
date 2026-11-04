@@ -20,12 +20,15 @@ export default function Website2D() {
     <div className="relative">
       <Canvas
         className="fixed inset-0 !pointer-events-none"
+        gl={{ alpha: true }}
+        onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
         style={{
           position: "fixed",
           top: 0,
           bottom: 0,
           overflow: "hidden",
           zIndex: -1,
+          background: "transparent",
         }}
       >
         <View.Port />
@@ -36,13 +39,18 @@ export default function Website2D() {
         <main>
           <Nav setView={setView} />
           <Home />
-          <About />
+          <About
+            onOpenBeyond={() => {
+              setView("beyond");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          />
           <Projects />
           <Journey />
           <Contact />
         </main>
       ) : (
-        <main className="flex flex-col items-center px-8 md:px-16">
+        <main className="flex flex-col items-center">
           <Beyond onBack={() => setView("home")} />
           <Books />
           <Mixes />

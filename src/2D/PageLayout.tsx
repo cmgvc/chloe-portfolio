@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from "react";
-import scrollTo from "../utils/scrollTo";
+
 interface PageLayoutProps {
   icon: ReactNode;
   label: string;
@@ -10,40 +10,28 @@ interface PageLayoutProps {
 }
 
 export default function PageLayout({
-  icon,
   label,
   title,
   divId,
   children,
-  maxW = "max-w-7xl",
-  i = 0,
+  maxW = "max-w-none",
 }: PropsWithChildren<PageLayoutProps>) {
-  const bgColor = i % 2 === 0 ? "bg-[#0D0B0A]/50" : "bg-[#0D0B0A]/70";
-
   return (
-    <section
-      id={divId}
-      className={`${bgColor} p-4 lg:p-12 flex flex-col items-center lg:ml-[5%] mb-[7%]`}
-    >
-      <header
-        id={`${divId}-header`}
-        className="text-center cursor-pointer duration-300 hover:opacity-70"
-        onClick={() => scrollTo(divId)}
-      >
-        <div className="flex gap-2 lg:gap-4 w-full justify-center items-center">
-          {icon}
-          <span className="font-bold text-[#F5E6CA] tracking-[0.2em] text-sm lg:text-base">
-            {label.toUpperCase()}
+    <section id={divId} className="border-t border-line">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:pl-24 lg:pr-16 py-20 lg:py-28">
+        <header id={`${divId}-header`} className="text-left">
+          <span className="text-[11px] tracking-[0.32em] uppercase text-clay">
+            {label}
           </span>
-          {icon}
-        </div>
-        <h1 className="font-bold text-3xl lg:text-5xl mt-2">{title}</h1>
-        <div className="h-1 w-16 lg:w-24 bg-[#F5E6CA] mx-auto my-4" />
-      </header>
+          <h1 className="font-display font-medium text-5xl lg:text-6xl mt-3 text-ink leading-[0.95]">
+            {title}
+          </h1>
+        </header>
 
-      <article className={`mt-4 flex flex-col items-center w-full ${maxW}`}>
-        {children}
-      </article>
+        <article className={`mt-10 flex flex-col items-start w-full ${maxW}`}>
+          {children}
+        </article>
+      </div>
     </section>
   );
 }

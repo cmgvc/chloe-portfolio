@@ -40,10 +40,10 @@ export default function Books() {
     >
       {" "}
       <header className="mb-12">
-        <h1 className="text-5xl font-extrabold mb-4 text-[#f0c6a6f1]">
+        <h1 className="font-display text-5xl font-medium mb-4 text-ink tracking-tight">
           My Library
         </h1>
-        <p className="text-[#f0c6a6f1]">
+        <p className="text-mist">
           A living record of my current reads and all-time favs.
         </p>
       </header>
@@ -63,10 +63,10 @@ export default function Books() {
 
 function Shelf({ title, books }: { title: string; books: Book[] }) {
   return (
-    <section className="bg-[#3D342F]/40 p-6 rounded-2xl border border-[#221d1a]">
-      <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-[#f0c6a6f1]">
+    <section className="bg-sand/50 p-6 border border-line">
+      <h2 className="font-display text-2xl mb-6 flex items-center gap-3 text-ink">
         {title}
-        <span className="flex items-center justify-center w-6 h-6 text-sm bg-[#E07A5F]/20 text-[#D65F3D] rounded-full font-bold">
+        <span className="flex items-center justify-center w-6 h-6 text-xs bg-paper text-clay border border-line">
           {books.length}
         </span>
       </h2>
@@ -95,13 +95,13 @@ function BookCard({ book }: { book: Book }) {
       whileHover={{ scale: 1.05 }}
       className="block w-full cursor-pointer group" 
     >
-      <div className="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-[#D9CAB3] shadow-md">
+      <div className="relative w-full aspect-[2/3] overflow-hidden bg-sand">
         {!imageLoaded && (
           <Skeleton
             variant="rectangular"
             animation="wave"
             className="absolute inset-0 z-10"
-            sx={{ bgcolor: "#C8B9A6" }}
+            sx={{ bgcolor: "#E6DFD2" }}
           />
         )}
         <img
@@ -114,10 +114,10 @@ function BookCard({ book }: { book: Book }) {
         />
       </div>
 
-      <h3 className="text-sm mt-3 font-medium truncate text-[#f0c6a6f1] group-hover:underline">
+      <h3 className="text-sm mt-3 font-medium truncate text-ink group-hover:underline">
         {book.title}
       </h3>
-      <p className="text-xs text-[#8C7B75]">{book.author}</p>
+      <p className="text-xs text-mist">{book.author}</p>
     </motion.a>
   );
 }

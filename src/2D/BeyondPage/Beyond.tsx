@@ -32,24 +32,24 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
   const showNav = showButton && !isIdle;
 
   return (
-    <div className="min-h-screen bg-[#0D0B0A] text-[#F5E6CA] p-8 md:p-16 flex flex-col items-center">
-      <div className="w-full max-w-4xl flex justify-start mb-8">
+    <div className="min-h-screen text-ink pt-28 pb-16 px-6 sm:px-10 flex flex-col items-center">
+      <div className="w-full max-w-4xl flex justify-start mb-10">
         <button
           onClick={onBack}
-          className="px-6 py-3 bg-[#3D342F] hover:bg-[#e0b080] text-[#e0b080] hover:text-[#0D0B0A] font-bold rounded-[30px] transition shadow-lg hover:shadow-xl"
+          className="text-[11px] tracking-[0.22em] uppercase text-clay hover:text-ink transition-colors"
         >
-          Back to Portfolio
+          ← Back
         </button>
       </div>
 
-      <div className="w-full max-w-4xl mb-12 text-left">
-        <h1 className="text-6xl font-extrabold mb-6 tracking-tight text-[#F5E6CA]">
-          Beyond the Code.
+      <div className="w-full max-w-4xl mb-14 text-left">
+        <h1 className="font-display text-5xl md:text-7xl font-medium mb-6 leading-[0.95] text-ink">
+          Beyond the terminal.
         </h1>
-        <p className="text-xl text-[#A09990] max-w-2xl leading-relaxed">
-          This is my digital garden. A space for the things that move me, the
-          projects that capture my curiosity, and the output of my creative
-          side. Always growing and never finished.
+        <p className="text-lg text-mist max-w-2xl leading-relaxed">
+          The work lives on the main page. This is the rest of what I take
+          seriously — books, music, travel, and the hobbies that don’t fit in
+          a job description.
         </p>
       </div>
 
@@ -60,11 +60,11 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               .getElementById("my-library-section")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="md:col-span-2 bg-[#262A26] p-8 rounded-3xl border border-[#3A4038] hover:border-[#A65D46] transition-all group cursor-pointer flex flex-col justify-between"
+          className="md:col-span-2 bg-sand/60 p-8 border border-line hover:border-clay transition-colors group cursor-pointer flex flex-col justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold mb-2">My Library</h2>
-            <p className="text-[#A09990] mb-6">
+            <h2 className="font-display text-3xl mb-2">My Library</h2>
+            <p className="text-mist mb-6">
               Books that have shifted my perspective.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               {books.slice(0, 5).map((book) => (
                 <div
                   key={book.id}
-                  className="w-10 h-14 rounded-md bg-[#3D342F] border-2 border-[#262A26] overflow-hidden shadow-sm"
+                  className="w-10 h-14 bg-paper border border-line overflow-hidden"
                 >
                   <img
                     src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`}
@@ -83,13 +83,13 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
                   />
                 </div>
               ))}
-              <div className="w-10 h-14 rounded-md bg-[#3D342F] border-2 border-[#262A26] flex items-center justify-center text-[10px] text-[#A65D46] font-bold">
+              <div className="w-10 h-14 bg-paper border border-line flex items-center justify-center text-[10px] text-clay">
                 +{books.length - 5}
               </div>
             </div>
 
-            <span className="text-[#A65D46] font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-              Scroll to Collection →
+            <span className="text-clay text-[11px] tracking-[0.16em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+              Collection
             </span>
           </div>
         </div>
@@ -100,11 +100,11 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               .getElementById("mixes-section")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="bg-[#262A26] p-8 rounded-3xl border border-[#3A4038] hover:border-[#A65D46] transition-all group cursor-pointer flex flex-col justify-between"
+          className="bg-sand/60 p-8 border border-line hover:border-clay transition-colors group cursor-pointer flex flex-col justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold mb-2">Mixes</h2>
-            <p className="text-[#A09990] text-sm mb-4">
+            <h2 className="font-display text-3xl mb-2">Mixes</h2>
+            <p className="text-mist text-sm mb-4">
               Selected mixes and live recordings.
             </p>
           </div>
@@ -116,10 +116,10 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-2 group/link"
           >
-            <div className="w-8 h-8 rounded-full bg-[#3D342F] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
+            <div className="w-8 h-8 border border-line flex items-center justify-center text-clay group-hover/link:bg-clay group-hover/link:text-paper transition">
               <span className="text-xs">▶</span>
             </div>
-            <span className="text-[#A09990] text-xs font-mono group-hover/link:text-[#F5E6CA] underline underline-offset-4">
+            <span className="text-mist text-xs group-hover/link:text-ink underline underline-offset-4">
               Listen on SoundCloud →
             </span>
           </a>
@@ -130,16 +130,16 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               .getElementById("curiosities-section")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="bg-[#262A26] p-8 rounded-3xl border border-[#3A4038] hover:border-[#A65D46] transition-all group cursor-pointer flex flex-col justify-between"
+          className="bg-sand/60 p-8 border border-line hover:border-clay transition-colors group cursor-pointer flex flex-col justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold mb-2">Curiosities</h2>
-            <p className="text-[#A09990] text-sm mb-4">
+            <h2 className="font-display text-3xl mb-2">Curiosities</h2>
+            <p className="text-mist text-sm mb-4">
               Niche hobbies and things I've tried.
             </p>
           </div>
-          <span className="text-[#A65D46] font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-            Scroll to explore →
+          <span className="text-clay text-[11px] tracking-[0.16em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+            Explore
           </span>
         </div>
         <div
@@ -148,11 +148,11 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               .getElementById("travel-section")
               ?.scrollIntoView({ behavior: "smooth" })
           }
-          className="md:col-span-3 bg-[#3D342F]/40 p-8 rounded-3xl border border-[#221d1a] hover:border-[#A65D46] transition-all cursor-pointer flex flex-col justify-between"
+          className="md:col-span-3 bg-transparent p-8 border border-line hover:border-clay transition-colors cursor-pointer flex flex-col justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold mb-2">Coordinates</h2>
-            <p className="text-[#A09990] mb-6 text-sm sm:text-base">
+            <h2 className="font-display text-3xl mb-2">Coordinates</h2>
+            <p className="text-mist mb-6 text-sm sm:text-base">
               I love traveling (honestly, who doesn't?). I've always found that
               the coolest parts of my own life are really a collection of things
               I’ve borrowed from other people and places. This is basically just
@@ -166,7 +166,7 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
               onClick={(e) => e.stopPropagation()}
               className="flex items-center gap-2 group/link"
             >
-              <div className="w-8 h-8 rounded-full bg-[#262A26] flex items-center justify-center text-[#A65D46] group-hover/link:bg-[#A65D46] group-hover/link:text-[#0D0B0A] transition">
+              <div className="w-8 h-8 border border-line flex items-center justify-center text-clay">
                 <span className="text-xs">📍</span>
               </div>
             </p>
@@ -186,14 +186,14 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             scrollToTop();
             setTimeout(() => onBack(), 300);
           }}
-          className="pointer-events-auto py-3 px-5 bg-[#A65D46] text-[#0D0B0A] rounded-full shadow-2xl hover:bg-[#e0b080] transition-all hover:scale-110"
+          className="pointer-events-auto py-3 px-4 bg-ink text-paper text-sm hover:bg-clay transition-colors"
         >
           ←
         </button>
 
         <button
           onClick={scrollToTop}
-          className="pointer-events-auto py-3 px-5 bg-[#A65D46] text-[#0D0B0A] rounded-full shadow-2xl hover:bg-[#e0b080] transition-all hover:scale-110"
+          className="pointer-events-auto py-3 px-4 bg-ink text-paper text-sm hover:bg-clay transition-colors"
         >
           ↑
         </button>

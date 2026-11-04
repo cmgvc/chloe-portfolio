@@ -1,52 +1,88 @@
 import FadeInText from "./FadeIn";
 import TypingLabel from "./TypingLabel";
 import { TYPING_TEXTS } from "../data/home";
-import GitHubButton from "./GitHubButton";
-import LinkedInButton from "./LinkedInButton";
+import scrollTo from "../utils/scrollTo";
 
 interface HeroTextProps {
   className?: string;
 }
 
+const LINKEDIN = "https://www.linkedin.com/in/chloe-gavrilovic-b911551b4/";
+const GITHUB = "https://github.com/cmgvc";
+
 export default function HeroText({ className = "" }: HeroTextProps) {
   return (
-    <section className={`flex items-center justify-center ${className}`}>
-      <div className="text-[#F5E6CA] max-w-5xl mt-[10vh]">
-        <FadeInText delay={0}>
-          <h2 className="text-xl uppercase tracking-widest">Hey there</h2>
-        </FadeInText>
+    <section className={`text-left text-ink max-w-xl ${className}`}>
+      <FadeInText delay={0}>
+        <p className="text-[11px] uppercase tracking-[0.32em] text-clay">
+          Software Developer II · Dell
+        </p>
+      </FadeInText>
 
-        <FadeInText delay={0.3}>
-          <h1 className="text-6xl font-bold mt-2">
-            My name is <span className="text-[#b47249]">Chloe</span>
-          </h1>
-        </FadeInText>
+      <FadeInText delay={0.12}>
+        <h1 className="font-display font-medium text-6xl sm:text-7xl lg:text-[5.5rem] leading-[0.9] mt-5">
+          Chloe
+          <br />
+          Gavrilovic
+        </h1>
+      </FadeInText>
 
-        <FadeInText delay={0.6}>
-          <h2 className="text-xl mt-4 text-[#b47249] font-semibold">
-            a
-            <TypingLabel
-              className=""
-              words={TYPING_TEXTS}
-            />
-          </h2>
+      <FadeInText delay={0.24}>
+        <p className="mt-8 text-base sm:text-lg leading-relaxed text-mist max-w-md">
+          I build software for systems that have to keep working. Radio
+          products at Dell, and before that an internal platform for Amazon’s
+          Ordering Accounting team.
+        </p>
+      </FadeInText>
 
-          <div className="h-1 w-24 bg-[#b95c23] mx-auto my-6" />
+      <FadeInText delay={0.36}>
+        <p className="mt-6 font-display italic text-2xl text-ink min-h-[2rem]">
+          I am a<TypingLabel className="text-clay not-italic" words={TYPING_TEXTS} />
+        </p>
+      </FadeInText>
 
-          <p className="text-lg leading-relaxed">
-            Welcome to my digital desk. Think of this as an open-source look at
-            my brain. Right now, that looks like shipped code, half-baked
-            curiosities, and whatever I’m currently hyper-fixating on.{" "}
-          </p>
-        </FadeInText>
+      <FadeInText delay={0.48}>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => scrollTo("projects-div")}
+            className="px-5 py-3 bg-ink text-paper text-[11px] tracking-[0.2em] uppercase hover:bg-clay transition-colors"
+          >
+            Selected work
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollTo("contact-div")}
+            className="px-5 py-3 border border-ink/20 text-[11px] tracking-[0.2em] uppercase text-ink hover:border-ink transition-colors"
+          >
+            Get in touch
+          </button>
+        </div>
+        <div className="mt-6 flex gap-6 text-[11px] tracking-[0.2em] uppercase">
+          <a
+            href={GITHUB}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-mist hover:text-ink transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href={LINKEDIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-mist hover:text-ink transition-colors"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </FadeInText>
 
-        <FadeInText delay={1.0}>
-          <div className="grid grid-cols-2 px-10 gap-4 mt-8">
-            <GitHubButton url="https://github.com/cmgvc" />
-            <LinkedInButton url="https://www.linkedin.com/in/chloe-gavrilovic-b911551b4/" />
-          </div>
-        </FadeInText>
-      </div>
+      <FadeInText delay={0.6}>
+        <p className="mt-12 text-[11px] tracking-[0.22em] uppercase text-mist/80">
+          McGill B.Sc. · Ottawa & Toronto · English & French
+        </p>
+      </FadeInText>
     </section>
   );
 }

@@ -1,130 +1,112 @@
-import { ReactNode } from "react";
-import { create } from "zustand";
-import { LanguageIcon, MapPinIcon } from "@heroicons/react/24/outline";
-
 import PageLayout from "../PageLayout";
 import FadeInText from "../../components/FadeIn";
 import SectionSubtitle from "../../components/SectionSubtitle";
 
-interface AboutStore {
-  hoveredCard: string | null;
-  setHoveredCard: (card: string | null) => void;
-}
+const FOCUSES = [
+  {
+    title: "Full-stack development",
+    body: "Interfaces and the services behind them, taken from a first sketch through deployment.",
+  },
+  {
+    title: "Embedded engineering",
+    body: "Software close to hardware: drivers, services, and radio systems that have to stay reliable.",
+  },
+  {
+    title: "Backend engineering",
+    body: "APIs, data, and the parts of a system that have to stay correct once people depend on them.",
+  },
+];
 
-const useAboutStore = create<AboutStore>((set) => ({
-  hoveredCard: null,
-  setHoveredCard: (card) => set({ hoveredCard: card }),
-}));
-
-// Hover logic hook
-const useCardHover = (key: string) => {
-  const { hoveredCard, setHoveredCard } = useAboutStore();
-  const isHovered = hoveredCard === key;
-  const isDimmed = hoveredCard !== null && !isHovered;
-
-  const bgStyles = isDimmed
-    ? "bg-[#121210]/40 border-transparent opacity-40 grayscale-[50%]"
-    : isHovered
-      ? "bg-[#82917A]/80 scale-[1.02] shadow-lg shadow-[#82917A]/10"
-      : "bg-[#1C1C1A]/70 backdrop-blur-md";
-
-  return {
-    bgStyles,
-    onMouseEnter: () => setHoveredCard(key),
-    onMouseLeave: () => setHoveredCard(null),
-  };
-};
-
-const IconCard = ({
-  children,
-  hoverKey,
-  className,
-}: {
-  children: ReactNode;
-  hoverKey: string;
-  className?: string;
-}) => {
-  const { bgStyles, ...handlers } = useCardHover(hoverKey);
+export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
   return (
-    <div
-      className={`duration-300 ${bgStyles} cursor-pointer shadow-lg rounded-lg p-6 ${className}`}
-      {...handlers}
-    >
-      {children}
-    </div>
-  );
-};
-
-export default function About() {
-  return (
-    <PageLayout label="About" title="About Me" divId="about-div" icon={null}>
+    <PageLayout label="About" title="What I do" divId="about-div" icon={null}>
       <SectionSubtitle>
-        I create things: complex systems in the terminal and my life outside of
-        it. I spend my time deep in software architecture and low-level logic. I
-        spend the rest of it building rhythm through the music I
-        mix, the laps I swim, the yoga I practice or through the pages of a new
-        book.
+        Software for products that ship, with a standing interest in the layer
+        underneath — including the kernel.
       </SectionSubtitle>
 
-      <div className="grid grid-cols-2 gap-4 mt-8 w-full max-w-4xl">
-        {[
-          {
-            icon: <MapPinIcon className="h-24 w-24" />,
-            title: "Location",
-            body: "Based in Ottawa & Toronto, Canada",
-          },
-          {
-            icon: <LanguageIcon className="h-24 w-24" />,
-            title: "Languages",
-            body: "English & French. Can show up in a Spanish-speaking country and not get lost. Aspiring Korean & Japanese speaker.",
-          },
-        ].map((card, i) => (
-          <FadeInText
-            key={card.title}
-            delay={i * 0.25}
-            className="col-span-2 lg:col-span-1"
-          >
-            <IconCard
-              hoverKey={`${card.title}-${card.body}`}
-              className="flex gap-4 w-full"
-            >
-              {card.icon}
+      <div className="mt-12 grid lg:grid-cols-[minmax(0,1.3fr)_minmax(220px,0.7fr)] gap-12 lg:gap-20 items-start w-full text-left">
+        <div>
+          <FadeInText>
+            <p className="text-ink/90 leading-relaxed">
+              I’m a software developer based between Ottawa and Toronto. At Dell
+              I produce and maintain software for radio products used in
+              wireless communication systems. Before that I interned at Amazon,
+              where I built a platform the Ordering Accounting team uses to
+              redrive workflows, and I studied software engineering alongside
+              anatomy and cell biology at McGill.
+            </p>
+          </FadeInText>
+
+          <FadeInText delay={0.1}>
+            <p className="mt-4 text-mist leading-relaxed">
+              Outside of that I mix music, swim, practice yoga, and read more
+              than is reasonable. That side of the desk is in{" "}
+              <button
+                type="button"
+                onClick={onOpenBeyond}
+                className="text-clay hover:underline underline-offset-4"
+              >
+                Beyond the terminal
+              </button>
+              .
+            </p>
+          </FadeInText>
+
+          <ul className="mt-10 border-t border-line">
+            {FOCUSES.map((focus, i) => (
+              <FadeInText
+                key={focus.title}
+                delay={0.15 + i * 0.06}
+                className="border-b border-line"
+              >
+                <li className="py-5 grid sm:grid-cols-[13rem_1fr] gap-1 sm:gap-8">
+                  <span className="font-display text-xl text-ink">
+                    {focus.title}
+                  </span>
+                  <span className="text-sm leading-relaxed text-mist self-center">
+                    {focus.body}
+                  </span>
+                </li>
+              </FadeInText>
+            ))}
+          </ul>
+
+          <FadeInText delay={0.35}>
+            <dl className="mt-10 grid sm:grid-cols-2 gap-8 text-sm">
               <div>
-                <h1 className="text-2xl font-semibold">{card.title}</h1>
-                <p>{card.body}</p>
+                <dt className="text-[11px] uppercase tracking-[0.22em] text-clay">
+                  Based
+                </dt>
+                <dd className="mt-2 text-ink">Ottawa & Toronto, Canada</dd>
               </div>
-            </IconCard>
-          </FadeInText>
-        ))}
-      </div>
-
-      <FadeInText delay={0.5} className="my-4">
-        <span className="font-bold text-2xl">Specializing In</span>
-      </FadeInText>
-
-      <div className="grid grid-cols-3 gap-4 w-full">
-        {[
-          { id: "full_stack", title: "Full-Stack", title2: "Development" },
-          { id: "embedded", title: "Embedded", title2: "Engineering" },
-          { id: "backend", title: "Backend", title2: "Engineering" },
-        ].map((specialty, i) => (
-          <FadeInText
-            key={specialty.id}
-            delay={0.5 + i * 0.25}
-            className="col-span-3 lg:col-span-1"
-          >
-            <IconCard hoverKey={specialty.id} className="text-left w-full">
-              <div className="text-2xl font-semibold">
-                <span className="block">{specialty.title}</span>
-                <span className="block">{specialty.title2}</span>
+              <div>
+                <dt className="text-[11px] uppercase tracking-[0.22em] text-clay">
+                  Languages
+                </dt>
+                <dd className="mt-2 text-ink leading-relaxed">
+                  English and French. Comfortable getting around in Spanish.
+                  Studying Korean and Japanese.
+                </dd>
               </div>
-            </IconCard>
+            </dl>
           </FadeInText>
-        ))}
-      </div>
-      <p className="mt-[3vh] scale-[0.8]">With a deep-seated interest in the kernel.</p>
-      <div className="headshot mt-15">
-        <img src="/images/chloe_mat.png" alt="Headshot" />
+        </div>
+
+        <FadeInText delay={0.15} className="lg:sticky lg:top-24">
+          <figure>
+            <div className="bg-sand p-3">
+              <img
+                src="/images/headshot.png"
+                alt="Chloe Gavrilovic"
+                className="w-full aspect-[3/4] object-cover object-[center_18%]"
+              />
+            </div>
+            <figcaption className="mt-3 text-[11px] uppercase tracking-[0.22em] text-mist">
+              Montreal
+            </figcaption>
+          </figure>
+        </FadeInText>
       </div>
     </PageLayout>
   );

@@ -9,10 +9,10 @@ export default function Travel() {
       className="min-h-screen p-8 max-w-7xl mx-auto flex flex-col gap-12"
     >
       <header className="text-center">
-        <h1 className="text-5xl font-extrabold mb-4 text-[#f0c6a6f1]">
+        <h1 className="font-display text-5xl font-medium tracking-tight mb-4 text-ink">
           World Traveller
         </h1>
-        <p className="text-[#e4cebe] max-w-xl mx-auto leading-relaxed">
+        <p className="text-mist max-w-xl mx-auto leading-relaxed">
           I’ve always been a chronic observer. Whenever I’m out, I’m looking for
           the little things, a certain vibe, a better way of doing something, or
           just a detail that sticks. I try to leave a bit of my own perspective
@@ -40,10 +40,10 @@ function TravelStats() {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-[#3D342F]/40 p-6 rounded-2xl border border-[#221d1a]"
+          className="border border-line p-6"
         >
-          <div className="text-3xl font-bold text-[#F0C6A6]">{stat.value}</div>
-          <div className="text-xs uppercase tracking-widest text-[#8C7B75] mt-2">
+          <div className="font-display text-4xl text-ink">{stat.value}</div>
+          <div className="text-[11px] uppercase tracking-[0.2em] text-mist mt-2">
             {stat.label}
           </div>
         </div>
@@ -90,7 +90,7 @@ function FragmentGallery() {
             className={`w-full h-full object-cover ${photo.pos || "object-center"} transition-transform duration-700 group-hover:scale-105`}
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-            <p className="text-[#F0C6A6] text-xs font-mono">{photo.caption}</p>
+            <p className="text-paper text-xs tracking-wide">{photo.caption}</p>
           </div>
         </div>
       ))}

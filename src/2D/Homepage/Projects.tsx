@@ -1,150 +1,127 @@
 import { useState } from "react";
-import GitHub from "@mui/icons-material/GitHub";
 import PageLayout from "../PageLayout";
-import projects from "../../data/projects";
+import projects, { Project } from "../../data/projects";
 import SectionSubtitle from "../../components/SectionSubtitle";
-import Launch from "@mui/icons-material/Launch";
 
-function ProjectCard({
-  project,
-  isExpanded,
-  onToggle,
-}: {
-  project: any;
-  isExpanded: boolean;
-  onToggle: () => void;
-}) {
-  const styles = {
-    container: isExpanded
-      ? "bg-[#82917A]/70 w-[75%] mx-auto"
-      : "bg-[#1C1C1A]/70",
-    text: isExpanded ? "text-[#F0C6A6]" : "text-[#82917A]",
-    chip: isExpanded
-      ? "bg-[#F0C6A6]/20 text-[#F0C6A6] hover:bg-[#F0C6A6]/30"
-      : "bg-[#82917A]/20 text-[#82917A] hover:bg-[#82917A]/30",
-  };
-
+function ProjectLinks({ project }: { project: Project }) {
   return (
-    <div
-      className={`transition-all duration-300 rounded-2xl p-6 flex flex-col h-full ${styles.container}`}
-    >
-      <div className={`text-sm font-mono mb-4 ${styles.text}`}>
-        {project.year}
-      </div>
-      <h3 className="text-[#F0C6A6] font-bold text-xl mb-2">{project.name}</h3>
-
-      <div className="text-[#e4cebe] text-sm mb-4 leading-relaxed">
-        {isExpanded ? (
-          project.desc.map((line: string, index: number) => (
-            <p key={index} className="mb-2">
-              {line}
-            </p>
-          ))
-        ) : (
-          <p>{project.desc[0].substring(0, 100)}...</p>
-        )}
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.tech.map((skill: string) => (
-          <span
-            key={skill}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 hover:shadow-lg ${styles.chip}`}
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-
-      {isExpanded && project.image && (
-        <img
-          src={project.image}
-          alt={project.name}
-          className="rounded-lg p-2 mb-4"
-        />
-      )}
-
-      <div className="mt-auto flex items-center justify-between">
-        <button
-          onClick={onToggle}
-          className="text-[#F0C6A6] text-sm border-b border-[#F0C6A6]/30 hover:border-[#F0C6A6] transition-colors"
+    <div className="flex gap-4 text-[11px] tracking-[0.16em] uppercase">
+      {project.source ? (
+        <a
+          href={project.source}
+          target="_blank"
+          rel="noreferrer"
+          className="text-mist hover:text-clay transition-colors"
         >
-          {isExpanded ? "Show Less" : "Show More"}
-        </button>
-
-        <div className="flex gap-4 items-center">
-          {project.source && project.source !== "" && (
-            <a
-              href={project.source}
-              target="_blank"
-              rel="noreferrer"
-              className={`${styles.text} hover:opacity-80 transition-opacity`}
-              title="GitHub Repository"
-            >
-              <GitHub fontSize="small" />
-            </a>
-          )}
-
-          {project.demo && project.demo !== "" && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noreferrer"
-              className={`${styles.text} hover:opacity-80 transition-opacity`}
-              title="Live Demo"
-            >
-              <Launch fontSize="small" />
-            </a>
-          )}
-        </div>
-      </div>
+          Source
+        </a>
+      ) : null}
+      {project.demo ? (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noreferrer"
+          className="text-mist hover:text-clay transition-colors"
+        >
+          Demo
+        </a>
+      ) : null}
     </div>
   );
 }
 
+function TechLine({ project }: { project: Project }) {
+  return (
+    <p className="text-xs tracking-wide text-mist">{project.tech.join(" · ")}</p>
+  );
+}
+
 export default function Projects() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [expandedName, setExpandedName] = useState<string | null>(null);
+  const [lead, ...rest] = projects;
+  const leadOpen = expandedName === lead.name;
 
-  const handleToggle = (index: number) => {
-    const isTarget = expandedIndex === index;
-    setExpandedIndex(isTarget ? null : index);
-
-    if (!isTarget) {
-      setTimeout(
-        () =>
-          document
-            .getElementById("projects-div")
-            ?.scrollIntoView({ behavior: "smooth" }),
-        150,
-      );
-    }
-  };
+  const toggle = (name: string) =>
+    setExpandedName((current) => (current === name ? null : name));
 
   return (
-    <PageLayout
-      label="Projects"
-      title="My Projects"
-      divId="projects-div"
-      icon={null}
-    >
+    <PageLayout label="Work" title="Selected work" divId="projects-div" icon={null}>
       <SectionSubtitle>
-        I like to build stuff, and I like to show it off. Here are some of my
-        projects that I'm proud of. Feel free to check out the source code and
-        demos if available!
+        Products and platforms I’ve designed, built, and shipped. Source and
+        demos are linked where I can share them.
       </SectionSubtitle>
-      <div
-        className={`mt-[5vh] grid gap-6 ${expandedIndex !== null ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}
-      >
-        {projects.map(
-          (project, i) =>
-            (expandedIndex === null || expandedIndex === i) && (
-              <ProjectCard
-                project={project}
-                isExpanded={expandedIndex === i}
-                onToggle={() => handleToggle(i)}
-              />
-            ),
-        )}
+
+      <article className="mt-14 w-full grid md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 md:gap-12 items-center bg-sand/70 p-6 md:p-10">
+        <div>
+          <p className="text-[11px] tracking-[0.22em] uppercase text-clay">
+            {lead.year} · Featured
+          </p>
+          <h3 className="font-display text-3xl md:text-4xl text-ink mt-3 leading-tight">
+            {lead.name}
+          </h3>
+          <p className="mt-4 text-sm md:text-base leading-relaxed text-mist">
+            {leadOpen ? lead.desc[0] : lead.summary}
+          </p>
+          <div className="mt-5">
+            <TechLine project={lead} />
+          </div>
+          <div className="mt-6 flex items-center gap-6">
+            <button
+              type="button"
+              onClick={() => toggle(lead.name)}
+              className="text-[11px] tracking-[0.18em] uppercase text-ink hover:text-clay"
+            >
+              {leadOpen ? "Close" : "Read more"}
+            </button>
+            <ProjectLinks project={lead} />
+          </div>
+        </div>
+        {lead.image ? (
+          <img src={lead.image} alt="" className="w-full" />
+        ) : null}
+      </article>
+
+      <div className="mt-4 w-full border-t border-line">
+        {rest.map((project) => {
+          const open = expandedName === project.name;
+          return (
+            <article key={project.name} className="border-b border-line py-6">
+              <div className="grid md:grid-cols-[4.5rem_minmax(0,1fr)_auto] gap-2 md:gap-8 items-baseline">
+                <p className="text-[11px] tracking-[0.18em] uppercase text-clay">
+                  {project.year}
+                </p>
+                <div>
+                  <h3 className="font-display text-2xl text-ink leading-tight">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-mist max-w-2xl">
+                    {open ? project.desc[0] : project.summary}
+                  </p>
+                </div>
+                <div className="flex md:flex-col md:items-end gap-4 md:gap-2">
+                  <button
+                    type="button"
+                    onClick={() => toggle(project.name)}
+                    className="text-[11px] tracking-[0.18em] uppercase text-ink hover:text-clay"
+                  >
+                    {open ? "Close" : "Read"}
+                  </button>
+                  <ProjectLinks project={project} />
+                </div>
+              </div>
+              <div className="md:pl-[calc(4.5rem+2rem)] mt-3">
+                <TechLine project={project} />
+                {open && project.image ? (
+                  <img
+                    src={project.image}
+                    alt=""
+                    className="mt-5 w-full max-w-xl"
+                  />
+                ) : null}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </PageLayout>
   );

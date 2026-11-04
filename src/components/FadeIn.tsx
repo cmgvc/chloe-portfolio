@@ -23,7 +23,7 @@ const FadeInText = ({
             initial={{ opacity: 0, x: fromX, y: fromY }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once }}
-            transition={{ duration: 1, delay }}
+            transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
             className={className}
         >
             {children}
