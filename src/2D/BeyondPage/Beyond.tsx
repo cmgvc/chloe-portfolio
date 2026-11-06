@@ -1,5 +1,5 @@
 import StatusBadge from "../../components/StatusBadge";
-import { books } from "../../data/books";
+import { books, spineCloth } from "../../data/books";
 import { useState, useEffect } from "react";
 
 export default function Beyond({ onBack }: { onBack: () => void }) {
@@ -69,23 +69,19 @@ export default function Beyond({ onBack }: { onBack: () => void }) {
             </p>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex -space-x-3">
-              {books.slice(0, 5).map((book) => (
+          <div className="flex items-end justify-between gap-6">
+            <div className="flex items-end gap-[3px] border-b-[6px] border-[#cfc4b2] pb-0">
+              {books.map((book) => (
                 <div
                   key={book.id}
-                  className="w-10 h-14 bg-paper border border-line overflow-hidden"
-                >
-                  <img
-                    src={`https://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`}
-                    alt={book.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                  title={book.title}
+                  className="h-12 w-[7px]"
+                  style={{
+                    backgroundColor: spineCloth(book.id).bg,
+                    boxShadow: "inset -1px 0 0 rgba(36,31,27,0.22)",
+                  }}
+                />
               ))}
-              <div className="w-10 h-14 bg-paper border border-line flex items-center justify-center text-[10px] text-clay">
-                +{books.length - 5}
-              </div>
             </div>
 
             <span className="text-clay text-[11px] tracking-[0.16em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">

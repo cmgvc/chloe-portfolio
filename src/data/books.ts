@@ -10,6 +10,27 @@ export interface Book {
   goodreadsUrl: string;
 }
 
+const SPINE_CLOTH = [
+  { bg: "#241F1B", fg: "#F3EFE7", band: "#8C4A34" },
+  { bg: "#8C4A34", fg: "#F3EFE7", band: "#E6DFD2" },
+  { bg: "#5C6A55", fg: "#F3EFE7", band: "#241F1B" },
+  { bg: "#3C342C", fg: "#F3EFE7", band: "#C4A882" },
+  { bg: "#6B3A32", fg: "#F3EFE7", band: "#E6DFD2" },
+  { bg: "#E7DCC8", fg: "#241F1B", band: "#8C4A34" },
+  { bg: "#2C3A34", fg: "#F3EFE7", band: "#C4A882" },
+  { bg: "#7A6248", fg: "#F3EFE7", band: "#241F1B" },
+];
+
+export function spineCloth(id: string) {
+  const n = Number(id) || 0;
+  return SPINE_CLOTH[(n * 3) % SPINE_CLOTH.length];
+}
+
+export function spineWidth(id: string) {
+  const n = Number(id) || 0;
+  return 44 + (n % 3) * 8;
+}
+
 export const books: Book[] = [
   // BEST SHELF
   {

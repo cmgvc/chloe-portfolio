@@ -129,4 +129,21 @@ export const curiosities: Curiosity[] = [
     photo: "",
     caption: "Chords at the kitchen table, mostly for myself.",
   },
+  {
+    id: 14,
+    title: "Wilderness",
+    tag: "Foraging & survival",
+    emoji: "🏕️",
+    photo: "",
+    caption:
+      "Trails, foraging, and the practical side of being outside when the weather turns.",
+  },
+  {
+    id: 15,
+    title: "Composing",
+    tag: "Music",
+    emoji: "🎼",
+    photo: "",
+    caption: "Writing music of my own, slowly and mostly for the pleasure of it.",
+  },
 ];

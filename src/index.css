@@ -66,6 +66,25 @@ canvas {
   mix-blend-mode: multiply;
 }
 
+.shelf-row {
+  scrollbar-width: none;
+}
+
+.shelf-row::-webkit-scrollbar {
+  display: none;
+}
+
+.spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  max-width: 2.3em;
+  max-height: 88%;
+  overflow: hidden;
+  line-height: 1.05;
+  text-align: center;
+  word-break: keep-all;
+}
+
 .intro-stroke {
   fill: none;
   stroke-linecap: round;

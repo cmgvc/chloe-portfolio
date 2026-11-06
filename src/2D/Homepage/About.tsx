@@ -5,16 +5,20 @@ import SectionSubtitle from "../../components/SectionSubtitle";
 
 const FOCUSES = [
   {
-    title: "Full-stack development",
-    body: "Interfaces and the services behind them, taken from a first sketch through deployment.",
+    title: "Backend engineering",
+    body: "APIs, data, and the parts of a system that have to stay correct once people depend on them.",
+  },
+  {
+    title: "AI engineering",
+    body: "Models inside a product: the software around them, and a check on what they return.",
   },
   {
     title: "Embedded engineering",
     body: "Software close to hardware: drivers, services, and radio systems that have to stay reliable.",
   },
   {
-    title: "Backend engineering",
-    body: "APIs, data, and the parts of a system that have to stay correct once people depend on them.",
+    title: "Cybersecurity",
+    body: "Who can reach a system, what they can touch, and how to tell when something is wrong.",
   },
 ];
 

@@ -29,9 +29,7 @@ export default function HeroText({ className = "" }: HeroTextProps) {
 
       <FadeInText delay={0.24}>
         <p className="mt-8 text-base sm:text-lg leading-relaxed text-mist max-w-md">
-          I build software for systems that have to keep working. Radio
-          products at Dell, and before that an internal platform for Amazon’s
-          Ordering Accounting team.
+        Software engineer based in Toronto. I like getting into how systems work, spotting where they can go wrong, and helping people use new technology carefully. Lately I've also been diving into music, composing, and cinematography, and seeing how that all intersects with tech.
         </p>
       </FadeInText>
 
