@@ -53,9 +53,9 @@ export const curiosities: Curiosity[] = [
     title: "Soccer",
     tag: "Sport",
     emoji: "⚽",
-    photo: "",
+    photo: "/images/hobbies/soccer.jpg",
     caption: "The game I never really put down.",
-    pos: "object-center",
+    pos: "object-[center_62%]",
   },
   {
     id: 9,
@@ -118,8 +118,9 @@ export const curiosities: Curiosity[] = [
     title: "Flute",
     tag: "Music",
     emoji: "🪈",
-    photo: "",
+    photo: "/images/hobbies/flute.jpg",
     caption: "A quieter instrument, and one I still pick up.",
+    pos: "object-[42%_center]",
   },
   {
     id: 13,
