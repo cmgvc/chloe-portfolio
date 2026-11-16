@@ -27,6 +27,15 @@ export default function Website2D() {
     else node.removeAttribute("inert");
   }, [intro, view]);
 
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    const toTop = () =>
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    toTop();
+    window.addEventListener("pageshow", toTop);
+    return () => window.removeEventListener("pageshow", toTop);
+  }, []);
+
   return (
     <div className="relative">
       <Canvas

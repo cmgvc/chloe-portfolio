@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const HOLD_MS = 3100;
+const WORDS_AT_MS = 2700;
+const HOLD_MS = 5600;
 const INK = "#241F1B";
+const GREETING = "welcome to my studio";
 
 function wavePath(y: number, amp: number, step: number) {
   const start = -step * 10;
@@ -25,6 +27,7 @@ const LINES = [
 
 export default function Intro({ onDone }: { onDone: () => void }) {
   const [leaving, setLeaving] = useState(false);
+  const [phase, setPhase] = useState<"waves" | "words">("waves");
 
   useEffect(() => {
     const previous = document.body.style.overflow;
@@ -37,6 +40,7 @@ export default function Intro({ onDone }: { onDone: () => void }) {
       setLeaving(true);
     };
 
+    const toWords = window.setTimeout(() => setPhase("words"), WORDS_AT_MS);
     const rest = window.setTimeout(finish, HOLD_MS);
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" || event.key === "Enter") finish();
@@ -44,6 +48,7 @@ export default function Intro({ onDone }: { onDone: () => void }) {
     window.addEventListener("keydown", onKey);
 
     return () => {
+      window.clearTimeout(toWords);
       window.clearTimeout(rest);
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = previous;
@@ -66,8 +71,20 @@ export default function Intro({ onDone }: { onDone: () => void }) {
       role="dialog"
       aria-label="Introduction"
     >
-      <div className="h-full grid place-items-center">
-        <svg viewBox="0 0 1000 560" className="w-full h-auto" aria-hidden="true">
+      <div className="relative h-full grid place-items-center">
+        <motion.svg
+          viewBox="0 0 1000 560"
+          className="w-full h-auto"
+          aria-hidden="true"
+          initial={false}
+          animate={
+            phase === "words"
+              ? { opacity: 0, scaleY: 0.08 }
+              : { opacity: 1, scaleY: 1 }
+          }
+          transition={{ duration: 1.05, ease: [0.76, 0, 0.24, 1] }}
+          style={{ transformOrigin: "center center" }}
+        >
           {LINES.map((line) => {
             const period = line.step * 2;
             const from = line.back ? -period : 0;
@@ -95,7 +112,30 @@ export default function Intro({ onDone }: { onDone: () => void }) {
               </g>
             );
           })}
-        </svg>
+        </motion.svg>
+
+        <p
+          className="pointer-events-none absolute inset-x-0 flex justify-center px-6 font-display italic text-[0.5rem] leading-none text-ink sm:text-2xl md:text-3xl"
+          aria-hidden={phase !== "words"}
+        >
+          {GREETING.split("").map((char, index) => (
+            <motion.span
+              key={`${char}-${index}`}
+              className="inline-block"
+              initial={{ opacity: 0, y: 10 }}
+              animate={
+                phase === "words" ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+              }
+              transition={{
+                duration: 0.55,
+                delay: phase === "words" ? 0.28 + index * 0.028 : 0,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </p>
       </div>
 
       <button
