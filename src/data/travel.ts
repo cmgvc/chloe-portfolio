@@ -7,6 +7,72 @@ export interface TravelPhoto {
 
 export const photos: TravelPhoto[] = [
   {
+    src: "/images/travel/paris.jpg",
+    caption: "Paris, France",
+    size: "portrait",
+    pos: "object-[center_34%]",
+  },
+  {
+    src: "/images/travel/paris-tower.jpg",
+    caption: "Paris, France",
+    size: "portrait",
+    pos: "object-[center_52%]",
+  },
+  {
+    src: "/images/travel/paris-sacre-coeur.jpg",
+    caption: "Paris, France",
+    size: "portrait",
+    pos: "object-[center_42%]",
+  },
+  {
+    src: "/images/travel/paris-garden.jpg",
+    caption: "Paris, France",
+    size: "portrait",
+    pos: "object-[center_58%]",
+  },
+  {
+    src: "/images/travel/paris-night.jpg",
+    caption: "Paris, France",
+    size: "portrait",
+    pos: "object-[center_46%]",
+  },
+  {
+    src: "/images/travel/dubrovnik.jpg",
+    caption: "Dubrovnik, Croatia",
+    size: "portrait",
+    pos: "object-[center_54%]",
+  },
+  {
+    src: "/images/travel/hvar-boat.jpg",
+    caption: "Hvar, Croatia",
+    size: "portrait",
+    pos: "object-[center_62%]",
+  },
+  {
+    src: "/images/travel/hvar-bay.jpg",
+    caption: "Hvar, Croatia",
+    size: "portrait",
+    pos: "object-[center_60%]",
+  },
+  {
+    src: "/images/travel/hvar-bow.jpg",
+    caption: "Hvar, Croatia",
+    size: "portrait",
+    pos: "object-[center_50%]",
+  },
+  {
+    src: "/images/travel/prague-cathedral.jpg",
+    caption: "Prague, Czechia",
+    size: "portrait",
+    pos: "object-[center_66%]",
+  },
+  {
+    src: "/images/travel/prague-dancing.jpg",
+    caption: "Prague, Czechia",
+    size: "portrait",
+    pos: "object-[center_62%]",
+  },
+  {
     src: "/images/travel/redrock.JPG",
     caption: "Red Rock Canyon, USA",
     size: "large",

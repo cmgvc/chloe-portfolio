@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StatusBadge from "../../components/StatusBadge";
-import { photos } from "../../data/travel";
+import { photos, type TravelPhoto } from "../../data/travel";
 
 export default function Travel() {
   return (
@@ -113,26 +113,7 @@ function FragmentGallery() {
         </div>
 
         <div className="flex items-center gap-3 sm:gap-4">
-          <div className="relative min-w-0 flex-1 overflow-hidden rounded-[4px] bg-black shadow-[inset_0_0_0_7px_#0a0908]">
-            <div className="relative aspect-[4/3]">
-              <img
-                key={photo.src}
-                src={photo.src}
-                alt={photo.caption}
-                className={`h-full w-full object-cover ${photo.pos || "object-center"}`}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/20" />
-              <div className="absolute inset-x-0 top-0 flex items-center justify-between px-3 py-2 text-[11px] tracking-[0.16em] text-paper">
-                <span aria-hidden="true">▶</span>
-                <span>
-                  {frame} / {count}
-                </span>
-              </div>
-              <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-3 pb-2 pt-8 text-xs text-paper">
-                {photo.caption}
-              </p>
-            </div>
-          </div>
+          <CameraScreen photo={photo} frame={frame} count={count} />
 
           <div className="flex w-[4.25rem] shrink-0 flex-col items-center justify-center gap-5 self-stretch rounded-2xl bg-[#141210] py-6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] sm:w-20">
             <button
@@ -157,6 +138,161 @@ function FragmentGallery() {
       <p className="sr-only" aria-live="polite">
         {photo.caption}, photo {frame} of {count}
       </p>
+    </div>
+  );
+}
+
+function focalPoint(pos?: string) {
+  const raw = pos?.match(/object-\[(.+)\]/)?.[1] ?? "";
+  const [xToken, yToken] = raw.split("_");
+  const read = (token: string | undefined) => {
+    if (!token || token === "center") return 0.5;
+    const value = Number.parseFloat(token);
+    return Number.isFinite(value) ? value / 100 : 0.5;
+  };
+  return { x: read(xToken), y: read(yToken) };
+}
+
+function clampShift(value: number, overflow: number) {
+  if (overflow <= 1) return 0;
+  return Math.min(0, Math.max(-overflow, value));
+}
+
+function CameraScreen({
+  photo,
+  frame,
+  count,
+}: {
+  photo: TravelPhoto;
+  frame: string;
+  count: string;
+}) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<{
+    pointerId: number;
+    startX: number;
+    startY: number;
+    originX: number;
+    originY: number;
+  } | null>(null);
+  const [layout, setLayout] = useState({
+    width: 0,
+    height: 0,
+    overflowX: 0,
+    overflowY: 0,
+  });
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const canPan = layout.overflowX > 1 || layout.overflowY > 1;
+
+  function place(image: HTMLImageElement) {
+    const box = frameRef.current;
+    if (!box || !image.naturalWidth || !image.naturalHeight) return;
+    const frameW = box.clientWidth;
+    const frameH = box.clientHeight;
+    const scale = Math.max(frameW / image.naturalWidth, frameH / image.naturalHeight);
+    const width = image.naturalWidth * scale;
+    const height = image.naturalHeight * scale;
+    const overflowX = width - frameW;
+    const overflowY = height - frameH;
+    const focal = focalPoint(photo.pos);
+    setLayout({ width, height, overflowX, overflowY });
+    setOffset({
+      x: focal.x * (frameW - width),
+      y: focal.y * (frameH - height),
+    });
+  }
+
+  useEffect(() => {
+    const box = frameRef.current;
+    if (!box) return;
+    const image = box.querySelector("img");
+    if (image?.complete && image.naturalWidth) {
+      place(image);
+    }
+    const observer = new ResizeObserver(() => {
+      const current = box.querySelector("img");
+      if (current?.naturalWidth) place(current);
+    });
+    observer.observe(box);
+    return () => observer.disconnect();
+  }, [photo.src, photo.pos]);
+
+  function onPointerDown(event: React.PointerEvent<HTMLDivElement>) {
+    if (!canPan) return;
+    drag.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originX: offset.x,
+      originY: offset.y,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function onPointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    const active = drag.current;
+    if (!active || active.pointerId !== event.pointerId) return;
+    setOffset({
+      x: clampShift(active.originX + event.clientX - active.startX, layout.overflowX),
+      y: clampShift(active.originY + event.clientY - active.startY, layout.overflowY),
+    });
+  }
+
+  function endDrag(event: React.PointerEvent<HTMLDivElement>) {
+    if (drag.current?.pointerId === event.pointerId) drag.current = null;
+  }
+
+  return (
+    <div className="relative min-w-0 flex-1 overflow-hidden rounded-[4px] bg-black shadow-[inset_0_0_0_7px_#0a0908]">
+      <div
+        ref={frameRef}
+        role="group"
+        aria-label={
+          canPan
+            ? `${photo.caption}. Drag to see the rest of the photo.`
+            : photo.caption
+        }
+        className={`relative aspect-[4/3] overflow-hidden ${canPan ? "cursor-grab touch-none active:cursor-grabbing" : ""}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
+        <img
+          key={photo.src}
+          src={photo.src}
+          alt={photo.caption}
+          draggable={false}
+          onLoad={(event) => place(event.currentTarget)}
+          className={
+            layout.width
+              ? "absolute left-0 top-0 max-w-none select-none"
+              : `h-full w-full select-none object-cover ${photo.pos || "object-center"}`
+          }
+          style={
+            layout.width
+              ? {
+                  width: layout.width,
+                  height: layout.height,
+                  transform: `translate(${offset.x}px, ${offset.y}px)`,
+                }
+              : undefined
+          }
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-black/20" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between px-3 py-2 text-[11px] tracking-[0.16em] text-paper">
+          <span aria-hidden="true">▶</span>
+          <span>
+            {frame} / {count}
+          </span>
+        </div>
+        <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-3 pb-2 pt-8 text-xs text-paper">
+          {photo.caption}
+        </p>
+        {canPan && (
+          <span className="sr-only">Drag the photo to see the parts outside the frame.</span>
+        )}
+      </div>
     </div>
   );
 }
