@@ -135,9 +135,10 @@ export const curiosities: Curiosity[] = [
     title: "Wilderness",
     tag: "Foraging & survival",
     emoji: "🏕️",
-    photo: "",
+    photo: "/images/hobbies/wilderness.jpg",
     caption:
       "Trails, foraging, and the practical side of being outside when the weather turns.",
+    pos: "object-[center_48%]",
   },
   {
     id: 15,
