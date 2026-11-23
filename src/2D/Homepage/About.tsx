@@ -22,7 +22,7 @@ const FOCUSES = [
   },
 ];
 
-export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
+export default function About() {
   const [active, setActive] = useState(0);
 
   return (
@@ -48,15 +48,7 @@ export default function About({ onOpenBeyond }: { onOpenBeyond: () => void }) {
           <FadeInText delay={0.1}>
             <p className="mt-4 text-mist leading-relaxed">
               Outside of that I mix music, swim, practice yoga, and read more
-              than is reasonable. That side of the desk is in{" "}
-              <button
-                type="button"
-                onClick={onOpenBeyond}
-                className="text-clay hover:underline underline-offset-4"
-              >
-                Beyond the terminal
-              </button>
-              .
+              than is reasonable.
             </p>
           </FadeInText>
 

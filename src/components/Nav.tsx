@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import scrollTo from "../utils/scrollTo";
 
-interface NavProps {
-  setView: (view: string) => void;
-}
-
 const LINKS = [
   { id: "about", label: "About" },
   { id: "projects", label: "Work" },
@@ -12,7 +8,7 @@ const LINKS = [
   { id: "contact", label: "Contact" },
 ];
 
-export default function Nav({ setView }: NavProps) {
+export default function Nav() {
   const [activeDiv, setActiveDiv] = useState("home-div");
   const [scrollY, setScrollY] = useState(0);
 
@@ -52,11 +48,6 @@ export default function Nav({ setView }: NavProps) {
   }, []);
 
   const isScrolled = scrollY > 8;
-
-  const openBeyond = () => {
-    setView("beyond");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const linkClass = (active: boolean) =>
     `text-[11px] tracking-[0.22em] uppercase transition-colors ${
@@ -99,14 +90,6 @@ export default function Nav({ setView }: NavProps) {
             );
           })}
         </ul>
-
-        <button
-          type="button"
-          onClick={openBeyond}
-          className="text-[11px] tracking-[0.22em] uppercase text-clay hover:text-ink transition-colors shrink-0"
-        >
-          Beyond
-        </button>
       </div>
 
       <ul className="md:hidden flex justify-between px-6 pb-3">

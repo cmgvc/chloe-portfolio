@@ -61,14 +61,9 @@ export default function Website2D() {
 
       {view === "home" ? (
         <main ref={mainRef} aria-hidden={intro || undefined}>
-          <Nav setView={setView} />
+          <Nav />
           <Home />
-          <About
-            onOpenBeyond={() => {
-              setView("beyond");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          />
+          <About />
           <Projects />
           <Journey />
           <Contact />
